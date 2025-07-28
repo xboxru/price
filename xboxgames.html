@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <title>Игры Xbox с поддержкой мыши и клавиатуры</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -12,6 +12,8 @@
             font-family: 'Verdana', 'Segoe UI', Tahoma, Geneva, sans-serif;
             position: relative;
             overflow-x: hidden;
+            font-size: 1rem;
+            line-height: 1.5;
         }
         .xbox-green {
             background-color: #107c10;
@@ -53,7 +55,7 @@
         }
         table {
             border-collapse: separate;
-            border-spacing: 0 1rem;
+            border-spacing: 1rem 1rem;
             width: 100%;
             background: rgba(26, 42, 26, 0.8);
             border-radius: 12px;
@@ -61,7 +63,7 @@
         }
         th, td {
             border: none;
-            padding: 16px;
+            padding: 16px 24px;
             text-align: left;
             vertical-align: top;
             background: linear-gradient(to bottom, #1a2a1a, #141a14);
@@ -74,18 +76,21 @@
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-size: 0.9rem;
         }
         .game-list {
             list-style-type: none;
             padding-left: 0;
             max-height: 500px;
             overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .game-list li {
             margin-bottom: 8px;
-            padding: 6px;
+            padding: 8px;
             border-radius: 4px;
             transition: transform 0.2s ease, background-color 0.2s ease;
+            font-size: 0.95rem;
         }
         .game-list li:hover {
             background-color: rgba(16, 124, 16, 0.2);
@@ -95,11 +100,12 @@
             background: rgba(255, 255, 255, 0.9);
             border: 1px solid #107c10;
             border-radius: 8px;
-            padding: 8px;
+            padding: 12px;
             width: 100%;
             max-width: 400px;
             color: #1a1a1a;
             transition: border-color 0.3s ease;
+            font-size: 1rem;
         }
         .search-bar:focus {
             border-color: #107c10;
@@ -122,6 +128,7 @@
         }
         .dark-gray-text {
             color: #333333;
+            font-size: 0.95rem;
         }
         .social-links {
             display: flex;
@@ -132,43 +139,95 @@
         .social-links a {
             color: #ffffff;
             background: #107c10;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 8px;
             text-decoration: none;
             transition: background-color 0.3s ease, transform 0.3s ease;
+            font-size: 0.9rem;
+            min-width: 120px;
+            text-align: center;
         }
         .social-links a:hover {
             background: #148f14;
             transform: scale(1.05);
         }
+        footer {
+            font-size: 0.85rem;
+        }
         @media (max-width: 640px) {
+            body {
+                font-size: 0.9rem;
+            }
+            .container {
+                padding-left: 12px;
+                padding-right: 12px;
+            }
             th, td {
                 display: block;
                 width: 100%;
                 margin-bottom: 16px;
+                padding: 12px;
             }
             th {
                 text-align: center;
+                font-size: 0.85rem;
             }
             .game-list {
-                max-height: none;
+                max-height: 300px;
+                font-size: 0.9rem;
+            }
+            .game-list li {
+                padding: 10px;
+            }
+            .search-bar {
+                max-width: 100%;
+                padding: 10px;
+                font-size: 0.95rem;
+            }
+            .dark-gray-text {
+                font-size: 0.9rem;
+                padding: 0 12px;
             }
             .watermark {
-                font-size: 5rem;
+                font-size: 4rem;
             }
             .logo-placeholder {
                 width: 60px;
                 height: 60px;
+                margin: 16px auto;
             }
             .social-links {
                 flex-direction: column;
                 align-items: center;
+                gap: 12px;
+            }
+            .social-links a {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+                width: 100%;
+                max-width: 300px;
+            }
+            footer {
+                font-size: 0.8rem;
+                padding: 12px;
+            }
+            table {
+                border-spacing: 0 0.5rem;
+            }
+        }
+        @media (max-width: 360px) {
+            .watermark {
+                font-size: 3rem;
+            }
+            .logo-placeholder {
+                width: 50px;
+                height: 50px;
             }
         }
     </style>
 </head>
 <body class="min-h-screen">
-    <div class="watermark">XBOX</div>
+    <div class="watermark"></div>
     <div class="logo-placeholder">
         <!-- Замените URL на ваш логотип -->
         <img src="https://sun9-85.userapi.com/s/v1/ig2/Q1x2c-t1BbhiPP74xuyinEybcKW6LUecXnnoSJ-54RpyteK7S6ypWHcwG9UEja-23k6kDG6fjtXRrEpHWQjZewYT.jpg?quality=95&as=32x32,48x48,72x72,108x108,160x160,240x240,360x360,480x480,540x540,640x640&from=bu&cs=640x0" alt="Логотип">
