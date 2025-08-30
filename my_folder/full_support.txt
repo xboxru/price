@@ -19,8 +19,10 @@ Atlas
 Atomfall
 Atomic Heart
 Avowed
+Barbie Project Friendship
 Batora: Lost Haven
-Black Myth Wukong (после релиза)
+Battlefield 6
+Black Myth Wukong
 Blacktail
 Block Dropper
 Bloodhound
@@ -46,6 +48,7 @@ Dauntless
 DayZ
 Daydream: Forgotten Sorrow
 Death Stranding
+Dead by Daylight
 Deceive Inc.
 Deep Rock Galactic
 Deliver Us The Moon
@@ -84,12 +87,13 @@ Go Mecha Ball
 GRID Legends
 GRIME
 Grounded
+Grounded 2
 Halo Infinite
 Halo: The Master Chief Collection
 Hawked
 Heavy Metal Machines
-Helldivers 2 (после релиза)
 High on Life
+Heretic + Hexen
 Horror Of The Deep
 Hotline Miami Collection
 Hot Wheels Unleashed
@@ -135,6 +139,7 @@ Operencia: The Stolen Sun
 Orcs Must Die! 3
 Paladins
 Park Beyond
+Paw Patrol Grand Prix
 PC Building Simulator
 Pentiment
 Phantasy Star Online 2
@@ -145,6 +150,7 @@ Planet Coaster: Console Edition
 Planet Coaster 2
 Planet of Lana
 Planet Zoo: Console Edition
+Poppy Playtime: Chapter 4
 Potion Craft: Alchemist Simulator
 Praetorians – HD Remaster
 Praey For The Gods
@@ -174,6 +180,7 @@ Space Warlord Organ Trading Simulator
 SquadBlast
 S.T.A.L.K.E.R. Legends of the Zone Trilogy – Enhanced Edition
 S.T.A.L.K.E.R. 2: Heart of Chornobyl
+Star Trek Prodigy: Supernova
 Star Wars Dark Forces: Remaster
 State of Decay 2
 Still Wakes The Deep
@@ -190,11 +197,13 @@ The House Of The Dead Remake
 The Last Case of Benedict Fox
 The Medium
 The Riftbreaker
+The Rogue Prince of Persia
 The Sims 4
 They Are Billions
 Throne and Liberty
 Tokyo Warfare Turbo
 Turok
+Ultimate Chicken Horse
 Ultimate Custom Night
 Untitled Goose Game
 Valheim
