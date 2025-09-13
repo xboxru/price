@@ -182,10 +182,53 @@ body.dark-theme .platform-badge {
     background-color: #555;
     color: #eee;
 }
+/* Стили для кнопки копирования */
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+.copy-button svg {
+    width: 16px;
+    height: 16px;
+    fill: #666;
+}
+body.dark-theme .copy-button svg {
+    fill: #bbb;
+}
+.copy-button:hover svg {
+    fill: #4CAF50;
+}
+.copy-button.copied::after {
+    content: "Скопировано!";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+.copy-button.copied svg {
+    fill: #4CAF50;
+}
+.product-name-container {
+    display: flex;
+    align-items: center;
+}
 /* Адаптив для мобильных */
 @media (max-width: 600px) {
   .cards-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 колонки на мобильных */
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
   }
   .page-wrapper {
@@ -205,7 +248,7 @@ body.dark-theme .platform-badge {
 @media (max-width: 360px) {
     .section-title {
         text-align: center;
-        font-size: 1.2em; /* уменьшение размера, чтобы помещалось */
+        font-size: 1.2em;
         margin: 20px auto 10px;
     }
     .note-table {
@@ -215,33 +258,32 @@ body.dark-theme .platform-badge {
         font-size: 0.9em;
     }
 }
-
 </style>
 </head>
 <body>
-
 <button class="theme-toggle" onclick="document.body.classList.toggle('dark-theme')">Сменить тему</button>
-
 <div class="page-wrapper">
 <!-- Группа 1 -->
 <h2 class="section-title">Game Pass Ultimate</h2>
-
 <table class="note-table">
     <tr>
         <td>Продление подписки на любой аккаунт.</td>
     </tr>
 </table>
-
 <div class="cards-container">
     <div class="card">
         <img src="https://m.media-amazon.com/images/I/71md9ggyf6L._SL1500_.jpg" alt="Game Pass Ultimate" />
         <h3>Game Pass Ultimate</h3>
         <div class="card-badges">
-            <!--<span class="badge badge-sale">Скидка</span>-->
             <span class="badge badge-top">Топ продаж</span>
         </div>
         <span class="price">1 290 ₽</span>
-        <p>Game Pass Ultimate 1 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 1 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 1 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Оформление на ваш аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -254,11 +296,14 @@ body.dark-theme .platform-badge {
         <h3>Game Pass Ultimate</h3>
         <div class="card-badges">
             <span class="badge badge-hit">Хит</span>
-            <!--<span<span class="badge badge-sale">Скидка</span>-->
-            <!--<span class="badge badge-top">Топ продаж</span>-->
         </div>
         <span class="price">2 350 ₽</span>
-        <p>Game Pass Ultimate 2 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 2 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 2 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Оформление на ваш аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -270,12 +315,15 @@ body.dark-theme .platform-badge {
         <img src="https://m.media-amazon.com/images/I/71md9ggyf6L._SL1500_.jpg" alt="Game Pass Ultimate" />
         <h3>Game Pass Ultimate</h3>
         <div class="card-badges">
-            <!--<span class="badge badge-hit">Хит</span>-->
-            <!--<span class="badge badge-sale">Скидка</span>-->
             <span class="badge badge-top">Топ продаж</span>
         </div>
         <span class="price">3 150 ₽</span>
-        <p>Game Pass Ultimate 3 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 3 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 3 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Оформление на ваш аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -288,11 +336,14 @@ body.dark-theme .platform-badge {
         <h3>Game Pass Ultimate</h3>
         <div class="card-badges">
             <span class="badge badge-hit">Хит</span>
-            <!--<span class="badge badge-sale">Скидка</span>-->
-            <!--<span class="badge badge-top">Топ продаж</span>-->
         </div>
         <span class="price">3 750 ₽</span>
-        <p>Game Pass Ultimate 4 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 4 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 4 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Оформление на ваш аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -304,12 +355,15 @@ body.dark-theme .platform-badge {
         <img src="https://m.media-amazon.com/images/I/71md9ggyf6L._SL1500_.jpg" alt="Game Pass Ultimate" />
         <h3>Game Pass Ultimate</h3>
         <div class="card-badges">
-            <!--<span class="badge badge-hit">Хит</span>-->
-            <!--<span class="badge badge-sale">Скидка</span>-->
             <span class="badge badge-top">Топ продаж</span>
         </div>
         <span class="price">5 790 ₽</span>
-        <p>Game Pass Ultimate 7 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 7 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 7 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Оформление на ваш аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -324,7 +378,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-hit">Хит</span>
         </div>
         <span class="price">7 390 ₽</span>
-        <p>Game Pass Ultimate 9 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 9 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 9 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Оформление на ваш аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -339,7 +398,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-hit">Хит</span>
         </div>
         <span class="price">9 900 ₽</span>
-        <p>Game Pass Ultimate 13 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 13 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 13 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Оформление на ваш аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -348,16 +412,13 @@ body.dark-theme .platform-badge {
         <a href="https://t.me/realfurys" class="card-button" target="_blank">Купить</a>
     </div>
 </div>
-
 <!-- Группа 2 -->
 <h2 class="section-title">Game Pass Ultimate</h2>
-
 <table class="note-table">
     <tr>
         <td>Подключение только на новый аккаунт. Аккаунт мы создаем сами бесплатно!</td>
     </tr>
 </table>
-
 <div class="cards-container">
     <div class="card">
         <img src="https://m.media-amazon.com/images/I/71md9ggyf6L._SL1500_.jpg" alt="Xbox Live Gold" />
@@ -366,7 +427,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-hit">Хит</span>
         </div>
         <span class="price">1100 ₽</span>
-        <p>Game Pass Ultimate 1 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 1 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 1 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Активация на новый аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -381,7 +447,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-hit">Хит</span>
         </div>
         <span class="price">1 850 ₽</span>
-        <p>Game Pass Ultimate 2 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 2 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 2 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Активация на новый аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -396,7 +467,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-hit">Хит</span>
         </div>
         <span class="price">2 750 ₽</span>
-        <p>Game Pass Ultimate 3 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 3 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 3 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Активация на новый аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -411,7 +487,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-top">Топ продаж</span>
         </div>
         <span class="price">3 450 ₽</span>
-        <p>Game Pass Ultimate 4 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 4 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 4 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Активация на новый аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -426,7 +507,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-top">Топ продаж</span>
         </div>
         <span class="price">4 750 ₽</span>
-        <p>Game Pass Ultimate 7 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 7 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 7 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Активация на новый аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -441,7 +527,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-top">Топ продаж</span>
         </div>
         <span class="price">5 690 ₽</span>
-        <p>Game Pass Ultimate 9 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 9 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 9 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Активация на новый аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -456,7 +547,12 @@ body.dark-theme .platform-badge {
             <span class="badge badge-top">Топ продаж</span>
         </div>
         <span class="price">6 950 ₽</span>
-        <p>Game Pass Ultimate 12 мес.</p>
+        <div class="product-name-container">
+            <p>Game Pass Ultimate 12 мес.</p>
+            <button class="copy-button" onclick="copyText(this, 'Game Pass Ultimate 12 мес.')">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+            </button>
+        </div>
         <p class="note">Активация на новый аккаунт.</p>
         <div class="platform-badges">
             <span class="platform-badge">Xbox One</span>
@@ -464,6 +560,17 @@ body.dark-theme .platform-badge {
         </div>
         <a href="https://t.me/realfurys" class="card-button" target="_blank">Купить</a>
     </div>
-</div> <!-- Закрывающий тег cards-container перенесен сюда -->
+</div>
+</div>
+<script>
+function copyText(button, text) {
+    navigator.clipboard.writeText(text).then(() => {
+        button.classList.add('copied');
+        setTimeout(() => {
+            button.classList.remove('copied');
+        }, 2000);
+    });
+}
+</script>
 </body>
 </html>
