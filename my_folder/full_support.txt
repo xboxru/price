@@ -51,6 +51,7 @@ Death Stranding
 Dead by Daylight
 Deceive Inc.
 Deep Rock Galactic
+Deep Rock Galactic: Survivor
 Deliver Us The Moon
 Destroy All Humans!
 Destroy All Humans! 2: Reprobed
@@ -80,6 +81,7 @@ Forza Motorsport
 FossilFuel2
 FragPunk
 Fran Bow
+Frostpunk 2
 Gears 5
 Gears Tactics
 Ghostlore
@@ -103,6 +105,7 @@ House Flipper
 House Flipper 2
 Hyperdot
 Hypnospace Outlaw
+Immortality
 Insurgency: Sandstorm
 Journey to the Savage Planet
 Jurassic World: Evolution 2
@@ -167,6 +170,7 @@ Sea of Thieves
 Shadow Warrior 3
 Shotgun Farmers
 Shoulders of Giants
+Shredders
 Skull & Bones
 Slime Rancher
 Smite
