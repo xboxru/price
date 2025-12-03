@@ -64,8 +64,10 @@ DPS Idle
 Dragon Bobby
 Dreamscaper
 Dungeons Of Hinterberg
+Dusk
 Easy Red 2
 Evil Genius 2
+Fate Seeker 2
 F1 Manager 2023
 F1 Manager 2024
 FBC: Firebreak
@@ -87,6 +89,8 @@ Gears 5
 Gears Tactics
 Ghostlore
 Go Mecha Ball
+Grappin
+Great God Grove
 GRID Legends
 GRIME
 Grounded
@@ -214,6 +218,7 @@ They Are Billions
 Throne and Liberty
 Tokyo Warfare Turbo
 Turok
+Turok 2: Seeds of Evil,
 Ultimate Chicken Horse
 Ultimate Custom Night
 Untitled Goose Game
