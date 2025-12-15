@@ -1,4 +1,5 @@
 Aery: Dreamscape
+A.I.L.A
 Aliens: Fireteam Elite
 Amaze!
 Among Us
@@ -75,6 +76,7 @@ Star Wars Jedi: Fallen Order
 Star Wars Jedi: Survivor
 Suicide Squad: Kill The Justice League
 Supraland: Six Inches Under
+Surviving Mars: Relaunched
 Tales of Kenzera: Zau
 Tainted Grail: Conquest
 Tainted Grail: The Fall of Avalon
