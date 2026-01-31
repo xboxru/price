@@ -277,10 +277,15 @@ body.dark-theme .copy-button svg {
 </div>
 
 <script>
-// Функция для загрузки данных из JSON файла
+// Функция для загрузки данных из JSON файла с отключением кэша
 async function loadProducts() {
     try {
-        const response = await fetch('products.json');
+        // Добавляем временной штамп к URL, чтобы обойти кэш браузера
+        const timestamp = new Date().getTime();
+        const response = await fetch(`products.json?t=${timestamp}`, {
+            cache: 'no-store' // Полностью отключаем кэширование
+        });
+        
         if (!response.ok) {
             throw new Error('Ошибка загрузки данных');
         }
