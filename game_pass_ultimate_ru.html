@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Xbox Россия - Игры и Подписки</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark-theme {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+.section-title {
+    text-align: center;
+    font-size: clamp(1.5em, 3vw, 2em);
+    margin: 40px auto 20px;
+    position: relative;
+}
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #4CAF50;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+/* Таблица заметок */
+.note-table {
+    width: fit-content;
+    max-width: 90%;
+    margin: 0 auto 15px;
+    border-collapse: collapse;
+    background: #e6f4ea;
+    color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 1em;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.note-table td {
+    padding: 10px 20px;
+    border: none;
+    font-weight: 500;
+}
+body.dark-theme .note-table {
+    background: #2d3a2d;
+    color: #ddd;
+}
+.note-table svg {
+    width: 16px;
+    height: 16px;
+    fill: #666;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+body.dark-theme .note-table svg {
+    fill: #bbb;
+}
+/* Контейнер карточек */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 2fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+/* Карточка */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+body.dark-theme .card {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+.card:hover {
+    /* transform: translateY(-5px); - карточки не шевелятся */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.card h3 {
+    font-size: clamp(1.1em, 2.5vw, 1.5em);
+    color: inherit;
+    margin: 0 0 5px;
+}
+.card-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    user-select: none;
+    white-space: nowrap;
+}
+.badge-hit { background-color: #e91e63; }
+.badge-sale { background-color: #ff9800; }
+.badge-top { background-color: #4caf50; }
+body.dark-theme .badge-hit { background-color: #f48fb1; }
+body.dark-theme .badge-sale { background-color: #ffb74d; }
+body.dark-theme .badge-top { background-color: #81c784; }
+.price {
+    color: #4CAF50;
+    font-size: clamp(1em, 2vw, 1.3em);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.card p:not(.note) {
+    color: #666;
+    font-size: clamp(0.9em, 2vw, 1em);
+    line-height: 1.4;
+    margin: 0 0 2px;
+}
+body.dark-theme .card p:not(.note) { color: #bbb; }
+.card .note {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+.card-button {
+    display: block;
+    margin-top: auto;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.card-button:hover { background-color: #45a049; }
+.theme-toggle {
+    margin: 15px;
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.theme-toggle:hover { background: #555; }
+/* Платформенные бэйджи */
+.platform-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 11px;
+}
+.platform-badge {
+    background-color: #ddd;
+    color: #333;
+    font-size: 0.7em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 500;
+    white-space: nowrap;
+    user-select: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-shrink: 1;
+    min-width: 40px;
+    text-align: center;
+}
+body.dark-theme .platform-badge {
+    background-color: #555;
+    color: #eee;
+}
+/* Стили для кнопки копирования */
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+.copy-button svg {
+    width: 16px;
+    height: 16px;
+    fill: #666;
+}
+body.dark-theme .copy-button svg {
+    fill: #bbb;
+}
+.copy-button:hover svg {
+    fill: #4CAF50;
+}
+.copy-button.copied::after {
+    content: "Скопировано!";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+.copy-button.copied svg {
+    fill: #4CAF50;
+}
+.product-name-container {
+    display: flex;
+    align-items: center;
+}
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .page-wrapper {
+    padding: 0 10px;
+    transform: none;
+  }
+  .card {
+    padding: 15px;
+  }
+  .card h3 { font-size: 1.1em; }
+  .card p:not(.note) { font-size: 0.9em; }
+  .card .note { font-size: 0.8em; }
+  .card-button { padding: 8px; font-size: 0.9em; }
+  .card-badges, .platform-badges { justify-content: flex-start; }
+}
+/* Очень узкие экраны */
+@media (max-width: 360px) {
+    .section-title {
+        text-align: center;
+        font-size: 1.2em;
+        margin: 20px auto 10px;
+    }
+    .note-table {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        font-size: 0.9em;
+    }
+}
+</style>
+</head>
+<body>
+<button class="theme-toggle" onclick="document.body.classList.toggle('dark-theme')">Сменить тему</button>
+<div class="page-wrapper" id="pageWrapper">
+  <p style="text-align: center; padding: 40px; font-size: 1.2em; color: #666;">Загрузка товаров...</p>
+</div>
+
+<script>
+// Функция для загрузки данных из JSON файла
+async function loadProducts() {
+    try {
+        const response = await fetch('products.json');
+        if (!response.ok) {
+            throw new Error('Ошибка загрузки данных');
+        }
+        const data = await response.json();
+        renderProducts(data);
+    } catch (error) {
+        console.error('Ошибка:', error);
+        document.getElementById('pageWrapper').innerHTML = '<p style="text-align: center; padding: 40px; color: #e91e63;">Ошибка загрузки товаров. Пожалуйста, попробуйте позже.</p>';
+    }
+}
+
+// Функция для рендеринга карточек
+function renderProducts(data) {
+    const wrapper = document.getElementById('pageWrapper');
+    let html = '';
+
+    data.sections.forEach(section => {
+        html += `
+            <h2 class="section-title">${section.title}</h2>
+            <table class="note-table">
+                <tr>
+                    <td>${section.note}</td>
+                </tr>
+            </table>
+            <div class="cards-container">
+        `;
+
+        section.cards.forEach(card => {
+            // Генерация бейджей
+            let badgesHtml = '';
+            if (card.badges && card.badges.length > 0) {
+                badgesHtml = '<div class="card-badges">';
+                card.badges.forEach(badge => {
+                    badgesHtml += `<span class="badge badge-${badge.type}">${badge.text}</span>`;
+                });
+                badgesHtml += '</div>';
+            }
+
+            // Генерация платформ
+            let platformsHtml = '';
+            if (card.platforms && card.platforms.length > 0) {
+                platformsHtml = '<div class="platform-badges">';
+                card.platforms.forEach(platform => {
+                    platformsHtml += `<span class="platform-badge">${platform}</span>`;
+                });
+                platformsHtml += '</div>';
+            }
+
+            html += `
+                <div class="card">
+                    <img src="${card.image}" alt="${card.title}" />
+                    <h3>${card.title}</h3>
+                    ${badgesHtml}
+                    <span class="price">${card.price}</span>
+                    <div class="product-name-container">
+                        <p>${card.name}</p>
+                        <button class="copy-button" onclick="copyText(this, '${card.price} ${card.name}')">
+                            <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+                        </button>
+                    </div>
+                    <p class="note">${card.note}</p>
+                    ${platformsHtml}
+                    <a href="${card.link}" class="card-button" target="_blank">Купить</a>
+                </div>
+            `;
+        });
+
+        html += `</div>`;
+    });
+
+    wrapper.innerHTML = html;
+}
+
+// Функция копирования текста
+function copyText(button, text) {
+    navigator.clipboard.writeText(text).then(() => {
+        button.classList.add('copied');
+        setTimeout(() => {
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error('Ошибка копирования:', err);
+    });
+}
+
+// Загрузка данных при загрузке страницы
+document.addEventListener('DOMContentLoaded', loadProducts);
+</script>
+</body>
+</html>
