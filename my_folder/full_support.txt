@@ -8,6 +8,7 @@ Aimlabs
 Alan Wake 2
 Aliens: Dark Descent
 ArcRunner
+Anno 117: Pax Romana
 Arise: A Simple Story
 Ark: Survival Evolved
 Arma Reforger
@@ -29,6 +30,7 @@ Block Dropper
 Bloodhound
 Blue Prince
 Bomber Crew
+Bratz Rhythm and Style
 Bridge Constructor: The Walking Dead
 Bright Memory
 Broken Sword – Shadow of the Templars: Reforged
@@ -166,6 +168,8 @@ Potion Craft: Alchemist Simulator
 Praetorians – HD Remaster
 Praey For The Gods
 Predecessor
+Prince of Persia The Lost Crown
+Project Spark
 Project Wingman
 Pumpkin Jack
 Quake
@@ -206,6 +210,7 @@ Surviving The Aftermath
 System Shock Remake
 System Shock 2: 25th Anniversary Remaster
 Teardown
+Techtonica
 Terraria
 The Finals
 The Forgotten City
