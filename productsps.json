@@ -1,0 +1,146 @@
+{
+  "sections": [
+    {
+      "title": "Game Pass Ultimate",
+      "note": "Продление подписки на любой аккаунт. Нажмите на значок копирования <svg viewBox=\"0 0 24 24\"><path d=\"M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z\"/></svg> рядом с названием товара, чтобы скопировать цену и название. Затем нажмите «Купить» и вставьте скопированное сообщение в чат с продавцом.",
+      "cards": [
+        {
+          "image": "my_folder/LMKW1W2MNUhOId0L26pEqQFz.webp",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "top", "text": "Топ продаж"}],
+          "price": "1 390 ₽",
+          "name": "Game Pass Ultimate 1 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": "3 390 ₽",
+          "name": "Game Pass Ultimate 3 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "top", "text": "Топ продаж"}],
+          "price": "4 750 ₽",
+          "name": "Game Pass Ultimate 5 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": "5 690 ₽",
+          "name": "Game Pass Ultimate 7 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "top", "text": "Топ продаж"}],
+          "price": "6 700 ₽",
+          "name": "Game Pass Ultimate 9 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": "8 750 ₽",
+          "name": "Game Pass Ultimate 11 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": "9 450 ₽",
+          "name": "Game Pass Ultimate 13 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        }
+      ]
+    },
+    {
+      "title": "Game Pass Ultimate (Новый аккаунт)",
+      "note": "Подключение только на новый аккаунт. Аккаунт мы создаем сами бесплатно! Нажмите на значок копирования <svg viewBox=\"0 0 24 24\"><path d=\"M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z\"/></svg> рядом с названием товара, чтобы скопировать цену и название. Затем нажмите «Купить» и вставьте скопированное сообщение в чат с продавцом.",
+      "cards": [
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": "1 250 ₽",
+          "name": "Game Pass Ultimate 1 мес.",
+          "note": "Активация на новый аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": "2 450 ₽",
+          "name": "Game Pass Ultimate 2 мес.",
+          "note": "Активация на новый аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": "3 900 ₽",
+          "name": "Game Pass Ultimate 4 мес.",
+          "note": "Активация на новый аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "top", "text": "Топ продаж"}],
+          "price": "5 500 ₽",
+          "name": "Game Pass Ultimate 7 мес.",
+          "note": "Активация на новый аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "top", "text": "Топ продаж"}],
+          "price": "6 600 ₽",
+          "name": "Game Pass Ultimate 9 мес.",
+          "note": "Активация на новый аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/57897877855.jpg",
+          "title": "Game Pass Ultimate",
+          "badges": [{"type": "top", "text": "Топ продаж"}],
+          "price": "7 900 ₽",
+          "name": "Game Pass Ultimate 11 мес.",
+          "note": "Активация на новый аккаунт.",
+          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "link": "https://t.me/realfurys"
+        }
+      ]
+    }
+  ]
+}
