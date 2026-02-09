@@ -282,7 +282,7 @@ async function loadProducts() {
     try {
         // Добавляем временной штамп к URL, чтобы обойти кэш браузера
         const timestamp = new Date().getTime();
-        const response = await fetch(`products.json?t=${timestamp}`, {
+        const response = await fetch(`productsps.json?t=${timestamp}`, {
             cache: 'no-store' // Полностью отключаем кэширование
         });
         
