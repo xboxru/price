@@ -1,17 +1,17 @@
 {
   "sections": [
     {
-      "title": "Game Pass Ultimate",
+      "title": "Playstation Plus",
       "note": "Продление подписки на любой аккаунт. Нажмите на значок копирования <svg viewBox=\"0 0 24 24\"><path d=\"M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z\"/></svg> рядом с названием товара, чтобы скопировать цену и название. Затем нажмите «Купить» и вставьте скопированное сообщение в чат с продавцом.",
       "cards": [
         {
           "image": "my_folder/LMKW1W2MNUhOId0L26pEqQFz.webp",
-          "title": "Game Pass Ultimate",
+          "title": "PlayStation Plus Essential",
           "badges": [{"type": "top", "text": "Топ продаж"}],
-          "price": "1 390 ₽",
-          "name": "Game Pass Ultimate 1 мес.",
+          "price": "1 450 ₽",
+          "name": "Essential 1 мес.",
           "note": "Оформление на ваш аккаунт.",
-          "platforms": ["PS4", "PS5"],
+          "platforms": ["PlayStation 4", "PlayStation 5"],
           "link": "https://t.me/realfurys"
         },
         {
