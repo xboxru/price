@@ -68,6 +68,10 @@ body.dark-theme .note-table {
 body.dark-theme .note-table svg {
     fill: #bbb;
 }
+    /* Глобально для всех элементов */
+*, *::before, *::after {
+    box-sizing: border-box; /* ← отступы включаются в ширину */
+}
 /* Контейнер карточек - 3 в ряд */
 .cards-container {
     display: grid;
