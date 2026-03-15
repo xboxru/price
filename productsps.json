@@ -48,7 +48,7 @@
           "image": "my_folder/ps-plus-subscription-extra-3.png",
           "title": "PlayStation Plus Extra",
           "badges": [{"type": "top", "text": "Топ продаж"}],
-          "price": "6 700 ₽",
+          "price": "4 150 ₽",
           "name": "Extra 3 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["PlayStation 4", "PlayStation 5"],
@@ -58,7 +58,7 @@
           "image": "my_folder/ps-plus-subscription-extra-12.png",
           "title": "PlayStation Plus Extra",
           "badges": [{"type": "hit", "text": "Хит"}],
-          "price": "8 750 ₽",
+          "price": "12 390 ₽",
           "name": "Extra 12 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["PlayStation 4", "PlayStation 5"],
@@ -75,11 +75,21 @@
           "link": "https://t.me/realfurys"
         },
         {
-          "image": "my_folder/ps-plus-subscription-deluxe-1.png",
+          "image": "my_folder/ps-plus-subscription-deluxe-3.png",
           "title": "PlayStation Plus Deluxe",
           "badges": [{"type": "hit", "text": "Хит"}],
-          "price": "1 950 ₽",
-          "name": "Deluxe 1 мес.",
+          "price": " 4 790 ₽",
+          "name": "Deluxe 3 мес.",
+          "note": "Оформление на ваш аккаунт.",
+          "platforms": ["PlayStation 4", "PlayStation 5"],
+          "link": "https://t.me/realfurys"
+        },
+        {
+          "image": "my_folder/ps-plus-subscription-deluxe-12.png",
+          "title": "PlayStation Plus Deluxe",
+          "badges": [{"type": "hit", "text": "Хит"}],
+          "price": " 13 900 ₽",
+          "name": "Deluxe 12 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["PlayStation 4", "PlayStation 5"],
           "link": "https://t.me/realfurys"
