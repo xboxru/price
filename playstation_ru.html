@@ -66,11 +66,19 @@ body.dark-theme .note-table svg {
 /* Контейнер карточек */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ← 3 колонки */
+    grid-template-columns: repeat(3, 260px); /* ← фиксированная ширина как мин. значение было */
     gap: 20px;
-    max-width: 1400px; /* ← увеличено с 1200px, чтобы карточки не растягивались */
+    max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
+    justify-content: center; /* ← центрируем, если экран шире */
+}
+
+/* Карточка — ограничиваем рост */
+.card {
+    width: 100%;
+    max-width: 260px; /* ← не даём карточке растягиваться */
+    margin: 0 auto;   /* ← центрируем внутри ячейки грида */
 }
 /* Карточка */
 .card {
