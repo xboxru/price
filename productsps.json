@@ -5,7 +5,7 @@
       "note": "Продление подписки на любой аккаунт. Нажмите на значок копирования <svg viewBox=\"0 0 24 24\"><path d=\"M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z\"/></svg> рядом с названием товара, чтобы скопировать цену и название. Затем нажмите «Купить» и вставьте скопированное сообщение в чат с продавцом.",
       "cards": [
         {
-          "image": "my_folder/578578875.png",
+          "image": "my_folder/ps-plus-subscription-essential-1.png",
           "title": "PlayStation Plus Essential",
           "badges": [{"type": "top", "text": "Топ продаж"}],
           "price": "1 450 ₽",
@@ -15,23 +15,23 @@
           "link": "https://t.me/realfurys"
         },
         {
-          "image": "my_folder/57897877855.jpg",
-          "title": "Game Pass Ultimate",
+          "image": "my_folder/ps-plus-subscription-essential-3.png",
+          "title": "PlayStation Plus Essential",
           "badges": [{"type": "hit", "text": "Хит"}],
           "price": "3 390 ₽",
-          "name": "Game Pass Ultimate 3 мес.",
+          "name": "Essential 3 мес.",
           "note": "Оформление на ваш аккаунт.",
-          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "platforms": ["PlayStation 4", "PlayStation 5"],
           "link": "https://t.me/realfurys"
         },
         {
-          "image": "my_folder/57897877855.jpg",
-          "title": "Game Pass Ultimate",
+          "image": "my_folder/ps-plus-subscription-essential-12.png",
+          "title": "PlayStation Plus Essential",
           "badges": [{"type": "top", "text": "Топ продаж"}],
           "price": "4 750 ₽",
-          "name": "Game Pass Ultimate 5 мес.",
+          "name": "Essential 5 мес.",
           "note": "Оформление на ваш аккаунт.",
-          "platforms": ["Xbox One", "Xbox Series S/X"],
+          "platforms": ["PlayStation 4", "PlayStation 5"],
           "link": "https://t.me/realfurys"
         },
         {
