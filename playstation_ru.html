@@ -69,17 +69,17 @@ body.dark-theme .note-table svg {
     fill: #bbb;
 }
 
-/* Контейнер карточек — 3 в ряд */
+/* Контейнер карточек — 3 в ряд, размеры как на референсе */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* ← ровно 3 колонки */
-    gap: 20px;
-    max-width: 1200px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px; /* ← как на референсной странице */
+    max-width: 1140px; /* ← оптимально для 3 карточек ~300px */
     margin: 0 auto;
     padding: 10px;
 }
 
-/* Карточка — оригинальные стили */
+/* Карточка — стили как на xboxru.github.io */
 .card {
     background-color: white;
     border-radius: 12px;
@@ -91,6 +91,7 @@ body.dark-theme .note-table svg {
     flex-direction: column;
     justify-content: space-between;
     width: 100%;
+    min-height: 420px; /* ← фиксированная высота для ровных рядов */
 }
 body.dark-theme .card {
     background-color: #1e1e1e;
@@ -101,104 +102,125 @@ body.dark-theme .card {
 }
 .card img {
     width: 100%;
-    height: auto;
+    height: 160px; /* ← фиксированная высота изображения */
     object-fit: contain;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    background: #f5f5f5;
+    padding: 8px;
+}
+body.dark-theme .card img {
+    background: #2a2a2a;
 }
 .card h3 {
-    font-size: clamp(1.1em, 2.5vw, 1.5em);
+    font-size: 1.25em;
+    font-weight: 600;
     color: inherit;
-    margin: 0 0 5px;
+    margin: 0 0 8px;
+    line-height: 1.3;
+    min-height: 2.6em; /* ← выравнивание заголовков */
 }
 .card-badges {
     display: flex;
     gap: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     flex-wrap: wrap;
 }
 .badge {
-    padding: 4px 10px;
+    padding: 4px 12px;
     border-radius: 999px;
-    font-size: 0.8em;
-    font-weight: bold;
+    font-size: 0.75em;
+    font-weight: 600;
     color: white;
     display: inline-block;
     user-select: none;
     white-space: nowrap;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
 }
 .badge-hit { background-color: #e91e63; }
 .badge-sale { background-color: #ff9800; }
 .badge-top { background-color: #4caf50; }
-body.dark-theme .badge-hit { background-color: #f48fb1; }
-body.dark-theme .badge-sale { background-color: #ffb74d; }
-body.dark-theme .badge-top { background-color: #81c784; }
+body.dark-theme .badge-hit { background-color: #f48fb1; color: #111; }
+body.dark-theme .badge-sale { background-color: #ffb74d; color: #111; }
+body.dark-theme .badge-top { background-color: #81c784; color: #111; }
 .price {
     color: #4CAF50;
-    font-size: clamp(1em, 2vw, 1.3em);
-    font-weight: bold;
-    margin-bottom: 4px;
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 4px 0 8px;
+    line-height: 1;
 }
 .card p:not(.note) {
-    color: #666;
-    font-size: clamp(0.9em, 2vw, 1em);
+    color: #555;
+    font-size: 0.95em;
     line-height: 1.4;
-    margin: 0 0 2px;
+    margin: 0 0 4px;
+    font-weight: 500;
 }
-body.dark-theme .card p:not(.note) { color: #bbb; }
+body.dark-theme .card p:not(.note) { color: #ccc; }
 .card .note {
-    font-size: 0.9em;
-    color: #999;
-    margin-top: 2px;
-    margin-bottom: 8px;
+    font-size: 0.85em;
+    color: #888;
+    margin: 4px 0 12px;
+    line-height: 1.3;
 }
-.card-button {
-    display: block;
-    margin-top: auto;
-    padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-}
-.card-button:hover { background-color: #45a049; }
-.theme-toggle {
-    margin: 15px;
-    padding: 8px 12px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-.theme-toggle:hover { background: #555; }
+body.dark-theme .card .note { color: #999; }
+
 /* Платформенные бэйджи */
 .platform-badges {
     display: flex;
     gap: 6px;
     flex-wrap: wrap;
-    margin-bottom: 11px;
+    margin-bottom: 16px;
 }
 .platform-badge {
-    background-color: #ddd;
+    background-color: #e0e0e0;
     color: #333;
     font-size: 0.7em;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-weight: 600;
     white-space: nowrap;
     user-select: none;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    flex-shrink: 1;
-    min-width: 40px;
-    text-align: center;
 }
 body.dark-theme .platform-badge {
-    background-color: #555;
+    background-color: #444;
     color: #eee;
 }
+
+.card-button {
+    display: block;
+    margin-top: auto;
+    padding: 12px;
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(76, 175, 80, 0.3);
+}
+.card-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(76, 175, 80, 0.4);
+    background: linear-gradient(135deg, #45a049, #3d8b40);
+}
+
+.theme-toggle {
+    margin: 15px;
+    padding: 8px 16px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+}
+.theme-toggle:hover { background: #555; }
+
 /* Стили для кнопки копирования */
 .copy-button {
     background: none;
@@ -209,11 +231,13 @@ body.dark-theme .platform-badge {
     display: inline-flex;
     align-items: center;
     position: relative;
+    vertical-align: middle;
 }
 .copy-button svg {
-    width: 16px;
-    height: 16px;
+    width: 18px;
+    height: 18px;
     fill: #666;
+    transition: fill 0.2s;
 }
 body.dark-theme .copy-button svg {
     fill: #bbb;
@@ -222,18 +246,23 @@ body.dark-theme .copy-button svg {
     fill: #4CAF50;
 }
 .copy-button.copied::after {
-    content: "Скопировано!";
+    content: "✓ Скопировано!";
     position: absolute;
-    top: -30px;
+    top: -32px;
     left: 50%;
     transform: translateX(-50%);
     background: #4CAF50;
     color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8em;
-    opacity: 1;
-    transition: opacity 0.3s;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75em;
+    font-weight: 500;
+    white-space: nowrap;
+    animation: fadeOut 2s forwards;
+}
+@keyframes fadeOut {
+    0%, 70% { opacity: 1; }
+    100% { opacity: 0; }
 }
 .copy-button.copied svg {
     fill: #4CAF50;
@@ -241,15 +270,16 @@ body.dark-theme .copy-button svg {
 .product-name-container {
     display: flex;
     align-items: center;
+    gap: 4px;
 }
 
 /* =========================================
    БЛОК КОНТАКТОВ
    ========================================= */
 .contacts-section {
-    max-width: 1200px;
+    max-width: 1140px;
     margin: 60px auto 40px;
-    padding: 40px 20px;
+    padding: 40px 24px;
     background: white;
     border-radius: 16px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -260,14 +290,17 @@ body.dark-theme .contacts-section {
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 .contacts-section h2 {
-    font-size: clamp(1.5em, 3vw, 2em);
-    margin: 0 0 10px;
+    font-size: 1.75em;
+    margin: 0 0 12px;
     color: inherit;
 }
 .contacts-section p {
     color: #666;
-    margin: 0 0 30px;
-    font-size: 1.1em;
+    margin: 0 0 28px;
+    font-size: 1.05em;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
 }
 body.dark-theme .contacts-section p {
     color: #bbb;
@@ -275,7 +308,7 @@ body.dark-theme .contacts-section p {
 .contacts-list {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 16px;
     flex-wrap: wrap;
 }
 .contact-btn {
@@ -285,27 +318,26 @@ body.dark-theme .contacts-section p {
     padding: 14px 28px;
     border-radius: 12px;
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-    min-width: 200px;
+    font-weight: 600;
+    font-size: 1.05em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 190px;
     justify-content: center;
 }
 .contact-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 .contact-btn svg {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
     fill: white;
+    flex-shrink: 0;
 }
-/* Telegram */
 .contact-btn.telegram {
     background: linear-gradient(135deg, #0088cc, #0066aa);
     color: white;
 }
-/* VK */
 .contact-btn.vk {
     background: linear-gradient(135deg, #0077FF, #0055cc);
     color: white;
@@ -315,6 +347,10 @@ body.dark-theme .contacts-section p {
 @media (max-width: 992px) {
     .cards-container {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .card {
+        min-height: auto;
     }
 }
 
@@ -322,7 +358,22 @@ body.dark-theme .contacts-section p {
 @media (max-width: 600px) {
     .cards-container {
         grid-template-columns: 1fr;
-        gap: 15px;
+        gap: 16px;
+        padding: 5px;
+    }
+    .card {
+        padding: 16px;
+        min-height: auto;
+    }
+    .card img {
+        height: 140px;
+    }
+    .card h3 {
+        font-size: 1.15em;
+        min-height: auto;
+    }
+    .price {
+        font-size: 1.3em;
     }
     .contacts-list {
         flex-direction: column;
@@ -330,68 +381,55 @@ body.dark-theme .contacts-section p {
     }
     .contact-btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
     }
     .page-wrapper {
-        padding: 0 10px;
+        padding: 0 8px;
     }
-    .card {
-        padding: 15px;
-    }
-    .card h3 { font-size: 1.1em; }
-    .card p:not(.note) { font-size: 0.9em; }
-    .card .note { font-size: 0.8em; }
-    .card-button { padding: 8px; font-size: 0.9em; }
-    .card-badges, .platform-badges { justify-content: flex-start; }
 }
 
 /* Очень узкие экраны */
 @media (max-width: 360px) {
     .section-title {
-        text-align: center;
-        font-size: 1.2em;
-        margin: 20px auto 10px;
+        font-size: 1.3em;
+        margin: 24px auto 12px;
     }
     .note-table {
         width: 100%;
         max-width: 100%;
-        text-align: center;
         font-size: 0.9em;
     }
     .contacts-section {
-        padding: 30px 15px;
+        padding: 28px 16px;
         margin: 40px auto 20px;
+    }
+    .contacts-section h2 {
+        font-size: 1.4em;
     }
 }
 </style>
 </head>
 <body>
-<button class="theme-toggle" onclick="document.body.classList.toggle('dark-theme')">Сменить тему</button>
+<button class="theme-toggle" onclick="document.body.classList.toggle('dark-theme')">🌓 Сменить тему</button>
 <div class="page-wrapper" id="pageWrapper">
   <p style="text-align: center; padding: 40px; font-size: 1.2em; color: #666;">Загрузка товаров...</p>
 </div>
 
 <script>
-// Функция для загрузки данных из JSON файла с отключением кэша
 async function loadProducts() {
     try {
         const timestamp = new Date().getTime();
-        const response = await fetch(`productsps.json?t=${timestamp}`, {
-            cache: 'no-store'
-        });
-        
-        if (!response.ok) {
-            throw new Error('Ошибка загрузки данных');
-        }
+        const response = await fetch(`productsps.json?t=${timestamp}`, { cache: 'no-store' });
+        if (!response.ok) throw new Error('Ошибка загрузки данных');
         const data = await response.json();
         renderProducts(data);
     } catch (error) {
         console.error('Ошибка:', error);
-        document.getElementById('pageWrapper').innerHTML = '<p style="text-align: center; padding: 40px; color: #e91e63;">Ошибка загрузки товаров. Пожалуйста, попробуйте позже.</p>';
+        document.getElementById('pageWrapper').innerHTML = 
+            '<p style="text-align: center; padding: 40px; color: #e91e63;">Ошибка загрузки товаров. Пожалуйста, попробуйте позже.</p>';
     }
 }
 
-// Функция для рендеринга карточек
 function renderProducts(data) {
     const wrapper = document.getElementById('pageWrapper');
     let html = '';
@@ -399,31 +437,21 @@ function renderProducts(data) {
     data.sections.forEach(section => {
         html += `
             <h2 class="section-title">${section.title}</h2>
-            <table class="note-table">
-                <tr>
-                    <td>${section.note}</td>
-                </tr>
-            </table>
-            <div class="cards-container">
-        `;
+            <table class="note-table"><tr><td>${section.note}</td></tr></table>
+            <div class="cards-container">`;
 
         section.cards.forEach(card => {
             let badgesHtml = '';
-            if (card.badges && card.badges.length > 0) {
-                badgesHtml = '<div class="card-badges">';
-                card.badges.forEach(badge => {
-                    badgesHtml += `<span class="badge badge-${badge.type}">${badge.text}</span>`;
-                });
-                badgesHtml += '</div>';
+            if (card.badges?.length) {
+                badgesHtml = '<div class="card-badges">' + 
+                    card.badges.map(b => `<span class="badge badge-${b.type}">${b.text}</span>`).join('') + 
+                    '</div>';
             }
-
             let platformsHtml = '';
-            if (card.platforms && card.platforms.length > 0) {
-                platformsHtml = '<div class="platform-badges">';
-                card.platforms.forEach(platform => {
-                    platformsHtml += `<span class="platform-badge">${platform}</span>`;
-                });
-                platformsHtml += '</div>';
+            if (card.platforms?.length) {
+                platformsHtml = '<div class="platform-badges">' + 
+                    card.platforms.map(p => `<span class="platform-badge">${p}</span>`).join('') + 
+                    '</div>';
             }
 
             html += `
@@ -441,18 +469,16 @@ function renderProducts(data) {
                     <p class="note">${card.note}</p>
                     ${platformsHtml}
                     <a href="${card.link}" class="card-button" target="_blank">Купить</a>
-                </div>
-            `;
+                </div>`;
         });
-
         html += `</div>`;
     });
 
-    // Добавляем блок контактов после карточек
+    // Блок контактов
     html += `
         <section class="contacts-section">
             <h2>📞 Связаться со мной</h2>
-            <p>Есть вопросы? Напишите в удобный мессенджер — отвечу быстро!</p>
+            <p>Напишите в удобный мессенджер — отвечу быстро и помогу с покупкой!</p>
             <div class="contacts-list">
                 <a href="https://t.me/realfurys" class="contact-btn telegram" target="_blank">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.52-1.4.51-.46-.01-1.35-.26-2.01-.48-.81-.27-1.44-.42-1.38-.88.03-.24.37-.49 1.03-.75 4.04-1.76 6.74-2.92 8.09-3.48 3.85-1.6 4.64-1.89 5.17-1.89.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.03.26z"/></svg>
@@ -462,27 +488,19 @@ function renderProducts(data) {
                     <svg viewBox="0 0 24 24"><path d="M15.073 2H8.937C3.339 2 2 3.337 2 8.927v6.136C2 20.663 3.337 22 8.927 22h6.136C20.663 22 22 20.663 22 15.073V8.937C22 3.339 20.663 2 15.073 2zM17.89 15.98c.49.49.9.95.9.95s.45.53.23.93c-.2.37-.72.4-.72.4l-1.75.01c-.53.1-1.12-.17-1.12-.17s-.6-.34-1.38-1.12c-.41-.42-.76-.88-.76-.88s-.13-.17-.37-.17c-.24 0-.26.23-.26.23s.15 1.28-1.07 1.38c0 0-.53.06-1.12-.22 0 0-.52-.24-1.15-1.08-.66-.89-1.31-2.05-1.31-2.05s-.1-.25-.29-.25c-.19 0-.27.17-.27.17s-.47 1.26-1.1 1.89c0 0-.58.67-1.35.67H3.77c-.6 0-.72-.3-.72-.63 0-.35.14-.67.14-.67s2.62-6.03 5.56-9.07c.52-.54 1.04-.72 1.28-.72h2.45s.37.07.57.35c.19.27.18.8.18.8s.01 2.43-.57 2.91c0 0-.26.21-.26.62 0 0 .04.33.57.85.56.55 1.35 1.58 1.35 1.58s.14.23.4.23c.26 0 .36-.14.36-.14s1.78-2.42 1.92-2.61c.14-.19.44-.21.44-.21h2.52s.75-.02.78.5c.03.52-.5 2.19-.5 2.19s-.2.63-.43.94c-.23.31-.32.41-.32.41s-.17.22.02.59c.19.37.82 1.59.82 1.59z"/></svg>
                     ВКонтакте
                 </a>
-                <!-- 🔧 ВСТАВЬТЕ ССЫЛКУ НА VK вместо https://vk.com/ваш_id -->
             </div>
-        </section>
-    `;
+        </section>`;
 
     wrapper.innerHTML = html;
 }
 
-// Функция копирования текста
 function copyText(button, text) {
     navigator.clipboard.writeText(text).then(() => {
         button.classList.add('copied');
-        setTimeout(() => {
-            button.classList.remove('copied');
-        }, 2000);
-    }).catch(err => {
-        console.error('Ошибка копирования:', err);
-    });
+        setTimeout(() => button.classList.remove('copied'), 2000);
+    }).catch(err => console.error('Ошибка копирования:', err));
 }
 
-// Загрузка данных при загрузке страницы
 document.addEventListener('DOMContentLoaded', loadProducts);
 </script>
 </body>
