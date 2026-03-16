@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -5,11 +6,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Xbox Россия - Игры и Подписки (Xbox/PlayStation/Steam/Spotify)</title>
 <style>
-/* Глобально для всех элементов */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -35,7 +31,6 @@ body.dark-theme {
     margin: 10px auto 0;
     border-radius: 2px;
 }
-
 /* Таблица заметок */
 .note-table {
     width: fit-content;
@@ -69,61 +64,70 @@ body.dark-theme .note-table {
 body.dark-theme .note-table svg {
     fill: #bbb;
 }
+/* Глобально для всех элементов */
+*, *::before, *::after {
+    box-sizing: border-box; /* ← отступы включаются в ширину */
+}
 
-/* Контейнер карточек — 3 в ряд (компактный) */
+/* Контейнер карточек */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
+    grid-template-columns: repeat(3, 260px); /* ← фиксированная ширина как мин. значение было */
+    gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
+    justify-content: center; /* ← центрируем, если экран шире */
 }
 
-/* Карточка — уменьшенная версия */
+/* Карточка — ограничиваем рост */
+.card {
+    width: 100%;
+    max-width: 260px; /* ← не даём карточке растягиваться */
+    margin: 0 auto;   /* ← центрируем внутри ячейки грида */
+}
+/* Карточка */
 .card {
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    padding: 15px;
+    padding: 20px;
     text-align: left;
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s, color 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
 }
 body.dark-theme .card {
     background-color: #1e1e1e;
     color: #f1f1f1;
 }
 .card:hover {
+    /* transform: translateY(-5px); - карточки не шевелятся */
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 .card img {
     width: 100%;
-    height: 140px;
+    height: auto;
     object-fit: contain;
     border-radius: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 .card h3 {
-    font-size: clamp(1em, 2.2vw, 1.3em);
+    font-size: clamp(1.1em, 2.5vw, 1.5em);
     color: inherit;
-    margin: 0 0 4px;
-    line-height: 1.3;
+    margin: 0 0 5px;
 }
-.card-badges,
-.platform-badges {
+.card-badges {
     display: flex;
-    gap: 6px;
-    margin-bottom: 6px;
+    gap: 8px;
+    margin-bottom: 8px;
     flex-wrap: wrap;
 }
 .badge {
-    padding: 3px 8px;
+    padding: 4px 10px;
     border-radius: 999px;
-    font-size: 0.75em;
+    font-size: 0.8em;
     font-weight: bold;
     color: white;
     display: inline-block;
@@ -136,40 +140,37 @@ body.dark-theme .card {
 body.dark-theme .badge-hit { background-color: #f48fb1; }
 body.dark-theme .badge-sale { background-color: #ffb74d; }
 body.dark-theme .badge-top { background-color: #81c784; }
-
 .price {
     color: #4CAF50;
-    font-size: clamp(0.95em, 1.9vw, 1.2em);
+    font-size: clamp(1em, 2vw, 1.3em);
     font-weight: bold;
     margin-bottom: 4px;
 }
 .card p:not(.note) {
     color: #666;
-    font-size: clamp(0.85em, 1.8vw, 0.95em);
-    line-height: 1.35;
+    font-size: clamp(0.9em, 2vw, 1em);
+    line-height: 1.4;
     margin: 0 0 2px;
 }
 body.dark-theme .card p:not(.note) { color: #bbb; }
 .card .note {
-    font-size: 0.85em;
+    font-size: 0.9em;
     color: #999;
     margin-top: 2px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 .card-button {
     display: block;
     margin-top: auto;
-    padding: 8px 12px;
+    padding: 10px;
     background-color: #4CAF50;
     color: white;
     text-align: center;
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
-    font-size: 0.95em;
 }
 .card-button:hover { background-color: #45a049; }
-
 .theme-toggle {
     margin: 15px;
     padding: 8px 12px;
@@ -180,27 +181,31 @@ body.dark-theme .card p:not(.note) { color: #bbb; }
     cursor: pointer;
 }
 .theme-toggle:hover { background: #555; }
-
 /* Платформенные бэйджи */
+.platform-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 11px;
+}
 .platform-badge {
     background-color: #ddd;
     color: #333;
-    font-size: 0.65em;
-    padding: 2px 7px;
+    font-size: 0.7em;
+    padding: 2px 8px;
     border-radius: 999px;
     font-weight: 500;
     white-space: nowrap;
     user-select: none;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     flex-shrink: 1;
-    min-width: 36px;
+    min-width: 40px;
     text-align: center;
 }
 body.dark-theme .platform-badge {
     background-color: #555;
     color: #eee;
 }
-
 /* Стили для кнопки копирования */
 .copy-button {
     background: none;
@@ -244,109 +249,25 @@ body.dark-theme .copy-button svg {
     display: flex;
     align-items: center;
 }
-
-/* =========================================
-   БЛОК КОНТАКТОВ
-   ========================================= */
-.contacts-section {
-    max-width: 1200px;
-    margin: 60px auto 40px;
-    padding: 40px 20px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    text-align: center;
-}
-body.dark-theme .contacts-section {
-    background: #1e1e1e;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-}
-.contacts-section h2 {
-    font-size: clamp(1.5em, 3vw, 2em);
-    margin: 0 0 10px;
-    color: inherit;
-}
-.contacts-section p {
-    color: #666;
-    margin: 0 0 30px;
-    font-size: 1.1em;
-}
-body.dark-theme .contacts-section p {
-    color: #bbb;
-}
-.contacts-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-.contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 14px 28px;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-    min-width: 200px;
-    justify-content: center;
-}
-.contact-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-.contact-btn svg {
-    width: 24px;
-    height: 24px;
-    fill: white;
-}
-.contact-btn.telegram {
-    background: linear-gradient(135deg, #0088cc, #0066aa);
-    color: white;
-}
-.contact-btn.vk {
-    background: linear-gradient(135deg, #0077FF, #0055cc);
-    color: white;
-}
-
-/* Адаптив: планшеты — 2 в ряд */
-@media (max-width: 992px) {
-    .cards-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
-}
-
-/* Адаптив: телефоны — 1 в ряд */
+/* Адаптив для мобильных */
 @media (max-width: 600px) {
-    .cards-container {
-        grid-template-columns: 1fr;
-        gap: 12px;
-    }
-    .contacts-list {
-        flex-direction: column;
-        align-items: center;
-    }
-    .contact-btn {
-        width: 100%;
-        max-width: 280px;
-    }
-    .page-wrapper {
-        padding: 0 10px;
-    }
-    .card {
-        padding: 12px;
-    }
-    .card h3 { font-size: 1.05em; }
-    .card p:not(.note) { font-size: 0.9em; }
-    .card .note { font-size: 0.8em; }
-    .card-button { padding: 7px 10px; font-size: 0.9em; }
-    .card-badges, .platform-badges { justify-content: flex-start; }
-    .card img { height: 120px; }
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .page-wrapper {
+    padding: 0 10px;
+    transform: none;
+  }
+  .card {
+    padding: 15px;
+  }
+  .card h3 { font-size: 1.1em; }
+  .card p:not(.note) { font-size: 0.9em; }
+  .card .note { font-size: 0.8em; }
+  .card-button { padding: 8px; font-size: 0.9em; }
+  .card-badges, .platform-badges { justify-content: flex-start; }
 }
-
 /* Очень узкие экраны */
 @media (max-width: 360px) {
     .section-title {
@@ -359,10 +280,6 @@ body.dark-theme .contacts-section p {
         max-width: 100%;
         text-align: center;
         font-size: 0.9em;
-    }
-    .contacts-section {
-        padding: 30px 15px;
-        margin: 40px auto 20px;
     }
 }
 </style>
@@ -377,9 +294,10 @@ body.dark-theme .contacts-section p {
 // Функция для загрузки данных из JSON файла с отключением кэша
 async function loadProducts() {
     try {
+        // Добавляем временной штамп к URL, чтобы обойти кэш браузера
         const timestamp = new Date().getTime();
         const response = await fetch(`productsps.json?t=${timestamp}`, {
-            cache: 'no-store'
+            cache: 'no-store' // Полностью отключаем кэширование
         });
         
         if (!response.ok) {
@@ -410,6 +328,7 @@ function renderProducts(data) {
         `;
 
         section.cards.forEach(card => {
+            // Генерация бейджей
             let badgesHtml = '';
             if (card.badges && card.badges.length > 0) {
                 badgesHtml = '<div class="card-badges">';
@@ -419,6 +338,7 @@ function renderProducts(data) {
                 badgesHtml += '</div>';
             }
 
+            // Генерация платформ
             let platformsHtml = '';
             if (card.platforms && card.platforms.length > 0) {
                 platformsHtml = '<div class="platform-badges">';
@@ -449,24 +369,6 @@ function renderProducts(data) {
 
         html += `</div>`;
     });
-
-    // Добавляем блок контактов после карточек
-    html += `
-        <section class="contacts-section">
-            <h2>📞 Связаться со мной</h2>
-            <p>Есть вопросы? Напишите в удобный мессенджер — отвечу быстро!</p>
-            <div class="contacts-list">
-                <a href="https://t.me/realfurys" class="contact-btn telegram" target="_blank">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.11.02-1.93 1.23-5.46 3.62-.51.35-.98.52-1.4.51-.46-.01-1.35-.26-2.01-.48-.81-.27-1.44-.42-1.38-.88.03-.24.37-.49 1.03-.75 4.04-1.76 6.74-2.92 8.09-3.48 3.85-1.6 4.64-1.89 5.17-1.89.11 0 .37.03.54.17.14.12.18.28.2.45-.02.07-.02.13-.03.26z"/></svg>
-                    Telegram
-                </a>
-                <a href="https://vk.com/ваш_id" class="contact-btn vk" target="_blank">
-                    <svg viewBox="0 0 24 24"><path d="M15.073 2H8.937C3.339 2 2 3.337 2 8.927v6.136C2 20.663 3.337 22 8.927 22h6.136C20.663 22 22 20.663 22 15.073V8.937C22 3.339 20.663 2 15.073 2zM17.89 15.98c.49.49.9.95.9.95s.45.53.23.93c-.2.37-.72.4-.72.4l-1.75.01c-.53.1-1.12-.17-1.12-.17s-.6-.34-1.38-1.12c-.41-.42-.76-.88-.76-.88s-.13-.17-.37-.17c-.24 0-.26.23-.26.23s.15 1.28-1.07 1.38c0 0-.53.06-1.12-.22 0 0-.52-.24-1.15-1.08-.66-.89-1.31-2.05-1.31-2.05s-.1-.25-.29-.25c-.19 0-.27.17-.27.17s-.47 1.26-1.1 1.89c0 0-.58.67-1.35.67H3.77c-.6 0-.72-.3-.72-.63 0-.35.14-.67.14-.67s2.62-6.03 5.56-9.07c.52-.54 1.04-.72 1.28-.72h2.45s.37.07.57.35c.19.27.18.8.18.8s.01 2.43-.57 2.91c0 0-.26.21-.26.62 0 0 .04.33.57.85.56.55 1.35 1.58 1.35 1.58s.14.23.4.23c.26 0 .36-.14.36-.14s1.78-2.42 1.92-2.61c.14-.19.44-.21.44-.21h2.52s.75-.02.78.5c.03.52-.5 2.19-.5 2.19s-.2.63-.43.94c-.23.31-.32.41-.32.41s-.17.22.02.59c.19.37.82 1.59.82 1.59z"/></svg>
-                    ВКонтакте
-                </a>
-            </div>
-        </section>
-    `;
 
     wrapper.innerHTML = html;
 }
