@@ -69,17 +69,17 @@ body.dark-theme .note-table svg {
     fill: #bbb;
 }
 
-/* Контейнер карточек — ОРИГИНАЛЬНЫЙ СТИЛЬ */
+/* Контейнер карточек — 3 в ряд */
 .cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 2fr));
+    grid-template-columns: repeat(3, 1fr); /* ← ровно 3 колонки */
     gap: 20px;
     max-width: 1200px;
     margin: 0 auto;
     padding: 10px;
 }
 
-/* Карточка — ОРИГИНАЛЬНЫЙ СТИЛЬ */
+/* Карточка — оригинальные стили */
 .card {
     background-color: white;
     border-radius: 12px;
@@ -90,6 +90,7 @@ body.dark-theme .note-table svg {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 100%;
 }
 body.dark-theme .card {
     background-color: #1e1e1e;
@@ -310,14 +311,14 @@ body.dark-theme .contacts-section p {
     color: white;
 }
 
-/* Адаптив для планшетов */
-@media (max-width: 900px) {
+/* Адаптив: планшеты — 2 в ряд */
+@media (max-width: 992px) {
     .cards-container {
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Адаптив для мобильных */
+/* Адаптив: телефоны — 1 в ряд */
 @media (max-width: 600px) {
     .cards-container {
         grid-template-columns: 1fr;
