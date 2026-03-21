@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Xbox Россия - Игры и Подписки</title>
+<title>Xbox Россия - Игры и Подписки Xbox/Playstation/Steam</title>
 <style>
 body {
     font-family: Arial, sans-serif;
@@ -236,64 +236,15 @@ body.dark-theme .copy-button svg {
 }
 
 /* =========================================
-   📞 БЛОК КОНТАКТОВ И ИНСТРУКЦИЯ
+   📞 БЛОК КОНТАКТОВ
    ========================================= */
-.info-section {
-    max-width: 1200px;
-    margin: 30px auto;
-    padding: 20px;
-    text-align: center;
-}
-.info-box {
-    background: linear-gradient(135deg, #fff9c4, #fff59d);
-    border-left: 4px solid #ffc107;
-    border-radius: 8px;
-    padding: 15px 20px;
-    margin-bottom: 25px;
-    text-align: left;
-    font-size: 0.95em;
-    line-height: 1.5;
-    color: #333;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-body.dark-theme .info-box {
-    background: linear-gradient(135deg, #3a3a2a, #2a2a1a);
-    border-left-color: #ffa000;
-    color: #f1f1f1;
-}
-.info-box strong {
-    color: #1976d2;
-}
-body.dark-theme .info-box strong {
-    color: #64b5f6;
-}
-.info-box ol {
-    margin: 10px 0 0 20px;
-    padding: 0;
-}
-.info-box li {
-    margin-bottom: 5px;
-}
-.info-box .copy-hint {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(76, 175, 80, 0.1);
-    padding: 2px 8px;
-    border-radius: 4px;
-    font-weight: 500;
-}
-body.dark-theme .info-box .copy-hint {
-    background: rgba(76, 175, 80, 0.2);
-}
-
 .contacts-section {
     background: white;
     border-radius: 16px;
     padding: 25px 20px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     max-width: 1200px;
-    margin: 0 auto 40px;
+    margin: 30px auto 40px;
     text-align: center;
 }
 body.dark-theme .contacts-section {
@@ -376,10 +327,6 @@ body.dark-theme .contacts-section p {
     width: 100%;
     max-width: 260px;
   }
-  .info-box {
-    font-size: 0.9em;
-    padding: 12px 15px;
-  }
 }
 
 /* Очень узкие экраны */
@@ -397,7 +344,7 @@ body.dark-theme .contacts-section p {
     }
     .contacts-section {
         padding: 20px 15px;
-        margin: 0 auto 30px;
+        margin: 20px auto 30px;
     }
 }
 </style>
@@ -409,7 +356,6 @@ body.dark-theme .contacts-section p {
 </div>
 
 <script>
-// Функция для загрузки данных из JSON файла с отключением кэша
 async function loadProducts() {
     try {
         const timestamp = new Date().getTime();
@@ -428,7 +374,6 @@ async function loadProducts() {
     }
 }
 
-// Функция для рендеринга карточек
 function renderProducts(data) {
     const wrapper = document.getElementById('pageWrapper');
     let html = '';
@@ -485,22 +430,8 @@ function renderProducts(data) {
         html += `</div>`;
     });
 
-    // 🔹 Добавляем блок с инструкцией и контактами
+    // 🔹 Только блок контактов (без инструкции)
     html += `
-        <section class="info-section">
-            <div class="info-box">
-                <strong>🔄 Продление подписки на любой аккаунт</strong><br><br>
-                Нажмите на значок <span class="copy-hint">📋 копирования</span> рядом с названием товара, чтобы скопировать цену и название. 
-                Затем нажмите «Купить» и вставьте скопированное сообщение в чат с продавцом.
-                <ol>
-                    <li>📋 Нажмите <strong>📋</strong> рядом с товаром — цена и название скопируются</li>
-                    <li>🛒 Нажмите кнопку <strong>«Купить»</strong></li>
-                    <li>💬 В открывшемся чате вставьте скопированный текст (Ctrl+V / долгое нажатие)</li>
-                    <li>✅ Укажите ваш логин/почту для активации</li>
-                </ol>
-            </div>
-        </section>
-
         <section class="contacts-section">
             <h2>📞 Связаться со мной</h2>
             <p>Есть вопросы? Напишите в удобный мессенджер — отвечу быстро!</p>
@@ -520,7 +451,6 @@ function renderProducts(data) {
     wrapper.innerHTML = html;
 }
 
-// Функция копирования текста
 function copyText(button, text) {
     navigator.clipboard.writeText(text).then(() => {
         button.classList.add('copied');
@@ -532,7 +462,6 @@ function copyText(button, text) {
     });
 }
 
-// Загрузка данных при загрузке страницы
 document.addEventListener('DOMContentLoaded', loadProducts);
 </script>
 </body>
