@@ -1,326 +1,379 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Xbox Россия - Игры и Подписки</title>
-    <style>
-        :root {
-            --bg: #f8f9fa;
-            --text: #212529;
-            --card-bg: white;
-            --card-text: #212529;
-            --muted: #6c757d;
-            --green: #4CAF50;
-            --green-dark: #45a049;
-        }
-
-        body.dark-theme {
-            --bg: #121212;
-            --text: #e0e0e0;
-            --card-bg: #1e1e1e;
-            --card-text: #e0e0e0;
-            --muted: #aaaaaa;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            transition: background 0.4s, color 0.4s;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            top: 12px;
-            right: 16px;
-            z-index: 100;
-            padding: 8px 14px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-        .theme-toggle:hover { background: #555; }
-
-        .container { max-width: 1240px; margin: 0 auto; padding: 0 12px; }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.6rem, 4vw, 2.2rem);
-            margin: 50px 0 10px;
-            position: relative;
-        }
-        .section-title:after {
-            content: "";
-            display: block;
-            width: 70px;
-            height: 4px;
-            background: var(--green);
-            margin: 12px auto 0;
-            border-radius: 2px;
-        }
-
-        .contacts {
-            text-align: center;
-            margin: 0 0 20px;
-            font-size: 1.05rem;
-        }
-        .contacts a {
-            color: inherit;
-            text-decoration: none;
-            margin: 0 22px;
-            padding: 8px 18px;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: all 0.2s;
-            display: inline-block;
-        }
-        .contacts a:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        .vk    { background: rgba(39, 135, 245, 0.12); color: #2787F5; }
-        .tg    { background: rgba(38, 165, 228, 0.12);  color: #26A5E4; }
-
-        body.dark-theme .vk { background: rgba(39, 135, 245, 0.22); }
-        body.dark-theme .tg { background: rgba(38, 165, 228, 0.22); }
-
-        .note {
-            background: #e8f5e9;
-            color: #2e7d32;
-            text-align: center;
-            padding: 14px 20px;
-            border-radius: 10px;
-            margin: 0 auto 30px;
-            max-width: 800px;
-            font-size: 1.02rem;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.06);
-        }
-        body.dark-theme .note {
-            background: #1b2e1b;
-            color: #a5d6a7;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 60px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            transition: transform 0.18s, box-shadow 0.18s;
-            display: flex;
-            flex-direction: column;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-        }
-
-        .card img {
-            width: 100%;
-            height: 180px;
-            object-fit: contain;
-            background: #f0f0f0;
-            padding: 12px;
-            box-sizing: border-box;
-        }
-        body.dark-theme .card img { background: #2a2a2a; }
-
-        .card-body {
-            padding: 18px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card-title {
-            margin: 0 0 8px;
-            font-size: 1.28rem;
-        }
-
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--green);
-            margin: 8px 0;
-        }
-
-        .badges {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 10px;
-        }
-        .badge {
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.82rem;
-            font-weight: 600;
-            color: white;
-        }
-        .badge-hit  { background: #e91e63; }
-        .badge-sale { background: #ff9800; }
-        .badge-top  { background: #4caf50; }
-
-        .platforms {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin: 10px 0;
-        }
-        .platform {
-            background: #e0e0e0;
-            color: #333;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 500;
-        }
-        body.dark-theme .platform {
-            background: #444;
-            color: #ddd;
-        }
-
-        .buy-btn {
-            margin-top: auto;
-            display: block;
-            text-align: center;
-            padding: 12px;
-            background: var(--green);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .buy-btn:hover {
-            background: var(--green-dark);
-        }
-
-        .loading, .error {
-            text-align: center;
-            padding: 120px 20px;
-            font-size: 1.3rem;
-            color: var(--muted);
-        }
-
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
-            .contacts a { margin: 8px 14px; padding: 7px 14px; }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Xbox Россия - Игры и Подписки</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark-theme {
+    background-color: #121212;
+    color: #f1f1f1;
+}
+.section-title {
+    text-align: center;
+    font-size: clamp(1.5em, 3vw, 2em);
+    margin: 40px auto 20px;
+    position: relative;
+}
+.section-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #4CAF50;
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+/* Таблица заметок */
+.note-table {
+    width: fit-content;
+    max-width: 90%;
+    margin: 0 auto 15px;
+    border-collapse: collapse;
+    background: #e6f4ea;
+    color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 1em;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.note-table td {
+    padding: 10px 20px;
+    border: none;
+    font-weight: 500;
+}
+body.dark-theme .note-table {
+    background: #2d3a2d;
+    color: #ddd;
+}
+.note-table svg {
+    width: 16px;
+    height: 16px;
+    fill: #666;
+    vertical-align: middle;
+    margin: 0 4px;
+}
+body.dark-theme .note-table svg {
+    fill: #bbb;
+}
+/* Контейнер карточек */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 2fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+/* Карточка */
+.card {
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: left;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s, color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+body.dark-theme .card {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+.card:hover {
+    /* transform: translateY(-5px); - карточки не шевелятся */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+.card h3 {
+    font-size: clamp(1.1em, 2.5vw, 1.5em);
+    color: inherit;
+    margin: 0 0 5px;
+}
+.card-badges {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.badge {
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 0.8em;
+    font-weight: bold;
+    color: white;
+    display: inline-block;
+    user-select: none;
+    white-space: nowrap;
+}
+.badge-hit { background-color: #e91e63; }
+.badge-sale { background-color: #ff9800; }
+.badge-top { background-color: #4caf50; }
+body.dark-theme .badge-hit { background-color: #f48fb1; }
+body.dark-theme .badge-sale { background-color: #ffb74d; }
+body.dark-theme .badge-top { background-color: #81c784; }
+.price {
+    color: #4CAF50;
+    font-size: clamp(1em, 2vw, 1.3em);
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.card p:not(.note) {
+    color: #666;
+    font-size: clamp(0.9em, 2vw, 1em);
+    line-height: 1.4;
+    margin: 0 0 2px;
+}
+body.dark-theme .card p:not(.note) { color: #bbb; }
+.card .note {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+.card-button {
+    display: block;
+    margin-top: auto;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.card-button:hover { background-color: #45a049; }
+.theme-toggle {
+    margin: 15px;
+    padding: 8px 12px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.theme-toggle:hover { background: #555; }
+/* Платформенные бэйджи */
+.platform-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 11px;
+}
+.platform-badge {
+    background-color: #ddd;
+    color: #333;
+    font-size: 0.7em;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 500;
+    white-space: nowrap;
+    user-select: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    flex-shrink: 1;
+    min-width: 40px;
+    text-align: center;
+}
+body.dark-theme .platform-badge {
+    background-color: #555;
+    color: #eee;
+}
+/* Стили для кнопки копирования */
+.copy-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 8px;
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+.copy-button svg {
+    width: 16px;
+    height: 16px;
+    fill: #666;
+}
+body.dark-theme .copy-button svg {
+    fill: #bbb;
+}
+.copy-button:hover svg {
+    fill: #4CAF50;
+}
+.copy-button.copied::after {
+    content: "Скопировано!";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4CAF50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+.copy-button.copied svg {
+    fill: #4CAF50;
+}
+.product-name-container {
+    display: flex;
+    align-items: center;
+}
+/* Адаптив для мобильных */
+@media (max-width: 600px) {
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  .page-wrapper {
+    padding: 0 10px;
+    transform: none;
+  }
+  .card {
+    padding: 15px;
+  }
+  .card h3 { font-size: 1.1em; }
+  .card p:not(.note) { font-size: 0.9em; }
+  .card .note { font-size: 0.8em; }
+  .card-button { padding: 8px; font-size: 0.9em; }
+  .card-badges, .platform-badges { justify-content: flex-start; }
+}
+/* Очень узкие экраны */
+@media (max-width: 360px) {
+    .section-title {
+        text-align: center;
+        font-size: 1.2em;
+        margin: 20px auto 10px;
+    }
+    .note-table {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        font-size: 0.9em;
+    }
+}
+</style>
 </head>
 <body>
-
-<button class="theme-toggle">Сменить тему</button>
-
-<div class="container" id="content">
-    <div class="loading">Загрузка товаров...</div>
+<button class="theme-toggle" onclick="document.body.classList.toggle('dark-theme')">Сменить тему</button>
+<div class="page-wrapper" id="pageWrapper">
+  <p style="text-align: center; padding: 40px; font-size: 1.2em; color: #666;">Загрузка товаров...</p>
 </div>
 
 <script>
-    const themeBtn = document.querySelector('.theme-toggle');
-    themeBtn.addEventListener('click', () => {
-        document.body.classList.toggle('dark-theme');
+// Функция для загрузки данных из JSON файла с отключением кэша
+async function loadProducts() {
+    try {
+        // Добавляем временной штамп к URL, чтобы обойти кэш браузера
+        const timestamp = new Date().getTime();
+        const response = await fetch(`products.json?t=${timestamp}`, {
+            cache: 'no-store' // Полностью отключаем кэширование
+        });
+        
+        if (!response.ok) {
+            throw new Error('Ошибка загрузки данных');
+        }
+        const data = await response.json();
+        renderProducts(data);
+    } catch (error) {
+        console.error('Ошибка:', error);
+        document.getElementById('pageWrapper').innerHTML = '<p style="text-align: center; padding: 40px; color: #e91e63;">Ошибка загрузки товаров. Пожалуйста, попробуйте позже.</p>';
+    }
+}
+
+// Функция для рендеринга карточек
+function renderProducts(data) {
+    const wrapper = document.getElementById('pageWrapper');
+    let html = '';
+
+    data.sections.forEach(section => {
+        html += `
+            <h2 class="section-title">${section.title}</h2>
+            <table class="note-table">
+                <tr>
+                    <td>${section.note}</td>
+                </tr>
+            </table>
+            <div class="cards-container">
+        `;
+
+        section.cards.forEach(card => {
+            // Генерация бейджей
+            let badgesHtml = '';
+            if (card.badges && card.badges.length > 0) {
+                badgesHtml = '<div class="card-badges">';
+                card.badges.forEach(badge => {
+                    badgesHtml += `<span class="badge badge-${badge.type}">${badge.text}</span>`;
+                });
+                badgesHtml += '</div>';
+            }
+
+            // Генерация платформ
+            let platformsHtml = '';
+            if (card.platforms && card.platforms.length > 0) {
+                platformsHtml = '<div class="platform-badges">';
+                card.platforms.forEach(platform => {
+                    platformsHtml += `<span class="platform-badge">${platform}</span>`;
+                });
+                platformsHtml += '</div>';
+            }
+
+            html += `
+                <div class="card">
+                    <img src="${card.image}" alt="${card.title}" />
+                    <h3>${card.title}</h3>
+                    ${badgesHtml}
+                    <span class="price">${card.price}</span>
+                    <div class="product-name-container">
+                        <p>${card.name}</p>
+                        <button class="copy-button" onclick="copyText(this, '${card.price} ${card.name}')">
+                            <svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/></svg>
+                        </button>
+                    </div>
+                    <p class="note">${card.note}</p>
+                    ${platformsHtml}
+                    <a href="${card.link}" class="card-button" target="_blank">Купить</a>
+                </div>
+            `;
+        });
+
+        html += `</div>`;
     });
 
-    async function loadData() {
-        const content = document.getElementById('content');
+    wrapper.innerHTML = html;
+}
 
-        try {
-            const ts = Date.now();
-            const res = await fetch(`products.json?ts=${ts}`, { cache: 'no-store' });
+// Функция копирования текста
+function copyText(button, text) {
+    navigator.clipboard.writeText(text).then(() => {
+        button.classList.add('copied');
+        setTimeout(() => {
+            button.classList.remove('copied');
+        }, 2000);
+    }).catch(err => {
+        console.error('Ошибка копирования:', err);
+    });
+}
 
-            if (!res.ok) {
-                throw new Error(`HTTP ${res.status}`);
-            }
-
-            const data = await res.json();
-
-            if (!data.sections || !Array.isArray(data.sections)) {
-                throw new Error('Неверный формат JSON: нет поля sections');
-            }
-
-            let html = '';
-
-            data.sections.forEach(sec => {
-                html += `<h2 class="section-title">${sec.title || 'Без названия'}</h2>`;
-
-                html += `
-                    <div class="contacts">
-                        <a href="https://vk.com/ВАШ_ID_ИЛИ_ГРУППА" class="vk" target="_blank" rel="noopener">ВКонтакте</a>
-                        <a href="https://t.me/ВАШ_КАНАЛ_ИЛИ_БОТ" class="tg" target="_blank" rel="noopener">Telegram</a>
-                    </div>
-                `;
-
-                if (sec.note) {
-                    html += `<div class="note">${sec.note}</div>`;
-                }
-
-                html += '<div class="grid">';
-
-                (sec.cards || []).forEach(card => {
-                    let badges = '';
-                    if (card.badges && Array.isArray(card.badges)) {
-                        badges = card.badges.map(b => 
-                            `<span class="badge badge-${b.type || 'top'}">${b.text || ''}</span>`
-                        ).join('');
-                        badges = `<div class="badges">${badges}</div>`;
-                    }
-
-                    let platforms = '';
-                    if (card.platforms && Array.isArray(card.platforms)) {
-                        platforms = card.platforms.map(p => 
-                            `<span class="platform">${p}</span>`
-                        ).join('');
-                        platforms = `<div class="platforms">${platforms}</div>`;
-                    }
-
-                    html += `
-                        <div class="card">
-                            <img src="${card.image || 'https://via.placeholder.com/300x180?text=Нет+изображения'}" 
-                                 alt="${card.title || ''}">
-                            <div class="card-body">
-                                <h3 class="card-title">${card.title || 'Без названия'}</h3>
-                                ${badges}
-                                <div class="price">${card.price || '—'}</div>
-                                <div style="display:flex; align-items:center; gap:8px; margin:6px 0;">
-                                    <span>${card.name || ''}</span>
-                                    <button onclick="navigator.clipboard.writeText('${card.price || ''} ${card.name || ''}').then(()=>alert('Скопировано'))"
-                                            title="Скопировать название и цену" style="background:none;border:none;cursor:pointer;">
-                                        📋
-                                    </button>
-                                </div>
-                                ${card.note ? `<small style="color:var(--muted);">${card.note}</small>` : ''}
-                                ${platforms}
-                                <a href="${card.link || '#'}" class="buy-btn" target="_blank" rel="noopener">Купить</a>
-                            </div>
-                        </div>
-                    `;
-                });
-
-                html += '</div>';
-            });
-
-            content.innerHTML = html;
-
-        } catch (err) {
-            console.error(err);
-            content.innerHTML = `<div class="error">Ошибка загрузки данных<br><small>${err.message}</small></div>`;
-        }
-    }
-
-    window.addEventListener('DOMContentLoaded', loadData);
+// Загрузка данных при загрузке страницы
+document.addEventListener('DOMContentLoaded', loadProducts);
 </script>
 </body>
 </html>
