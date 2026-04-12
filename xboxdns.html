@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Новые DNS адреса Xbox</title>
+  <title>Новые DNS адреса</title>
   <style>
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -56,9 +56,17 @@
       margin: 10px 0;
       color: #ffffff;
     }
-    .old {
-      color: #ff5555;
-      text-decoration: line-through;
+    .old-box {
+      background: #1e1e2e;
+      padding: 18px 22px;
+      border-radius: 12px;
+      border-left: 5px solid #666666;
+    }
+    .old-item {
+      font-family: monospace;
+      font-size: 1.25rem;
+      margin: 8px 0;
+      color: #bbbbbb;
     }
     .note {
       background: #2a2a3a;
@@ -78,10 +86,10 @@
 <body>
   <div class="container">
     <h1>🆕 НОВЫЕ DNS АДРЕСА</h1>
-    <p class="subtitle">Актуальные рабочие адреса для Xbox и других устройств</p>
+    <p class="subtitle">Актуальные адреса для стабильного подключения</p>
 
     <div class="section">
-      <span class="label">✅ Рекомендуемая пара (основная)</span>
+      <span class="label">✅ Основная пара (рекомендуется)</span>
       <div class="dns-box">
         <div class="dns-item"><strong>Основной:</strong> 111.88.96.50</div>
         <div class="dns-item"><strong>Дополнительный:</strong> 111.88.96.51</div>
@@ -97,26 +105,26 @@
     </div>
 
     <div class="section">
-      <span class="label">❌ Старые адреса (больше не используем)</span>
-      <div class="dns-box" style="border-left-color: #ff5555;">
-        <div class="dns-item old">31.192.108.180</div>
-        <div class="dns-item old">45.90.33.120</div>
-        <div class="dns-item old">195.123.210.89</div>
-        <div class="dns-item old">95.216.232.133</div>
+      <span class="label">📌 Старые адреса</span>
+      <div class="old-box">
+        <div class="old-item">31.192.108.180</div>
+        <div class="old-item">45.90.33.120</div>
+        <div class="old-item">195.123.210.89</div>
+        <div class="old-item">95.216.232.133</div>
       </div>
     </div>
 
     <div class="note">
-      <strong>Как поставить:</strong><br>
-      1. Зайдите в настройки сети на Xbox / ПК / роутере<br>
-      2. Выберите «Вручную» для DNS<br>
+      <strong>Как установить:</strong><br>
+      1. Зайдите в настройки сети на Xbox, ПК, роутере или телефоне<br>
+      2. Выберите ручную настройку DNS<br>
       3. Введите одну из пар выше<br>
-      4. Сохраните и перезагрузите устройство
+      4. Сохраните изменения и перезагрузите устройство
     </div>
 
     <footer>
-      Если один вариант не работает — попробуйте альтернативный.<br>
-      Удачи и стабильного подключения! ✨
+      Можно использовать как новые, так и старые адреса.<br>
+      Если возникнут проблемы — попробуйте другую пару.
     </footer>
   </div>
 </body>
