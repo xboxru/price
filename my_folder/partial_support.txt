@@ -14,7 +14,7 @@ Call of the Sea
 Car Mechanic Simulator 2021
 Castlevania: Dominus Collection
 Century: Age of Ashes
-Cities: Skylines – Remastered
+Cities: Skylines — Remastered
 Close to the Sun
 Commandos 2: HD Remaster
 Creatures of Ava
@@ -57,7 +57,7 @@ Moonlighter
 Mortal Shell
 My Friendly Neighborhood
 Norco
-Outcast – A New Beginning
+Outcast — A New Beginning
 Outriders
 Pacify
 Palworld
@@ -67,7 +67,7 @@ Relicta
 Remnant: From The Ashes
 Remnant 2
 Return to Grace
-Robin Hood – Sherwood Builders
+Robin Hood — Sherwood Builders
 Roblox
 Rogue Company
 Scorn
@@ -82,6 +82,7 @@ Surviving Mars: Relaunched
 Tales of Kenzera: Zau
 Tainted Grail: Conquest
 Tainted Grail: The Fall of Avalon
+TCG: Card Shop Simulator
 Tchia
 The Anacrusis
 The Ascent
