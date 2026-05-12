@@ -112,17 +112,6 @@
         {
           "image": "my_folder/57897877855.jpg",
           "title": "Game Pass Ultimate",
-          "badges": [{"type": "hit", "text": "Хит"}],
-          "price": "3 690 ₽",
-          "name": "Game Pass Ultimate 3 мес.",
-          "note": "Активация на новый аккаунт.",
-          "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys",
-          "disabled": true
-        },
-        {
-          "image": "my_folder/57897877855.jpg",
-          "title": "Game Pass Ultimate",
           "badges": [{"type": "top", "text": "Топ продаж"}],
           "price": "3 600 ₽",
           "name": "Game Pass Ultimate 4 мес.",
@@ -152,17 +141,6 @@
           "platforms": ["Xbox One", "Xbox Series S/X"],
           "link": "https://t.me/realfurys",
           "disabled": false
-        },
-        {
-          "image": "my_folder/57897877855.jpg",
-          "title": "Game Pass Ultimate",
-          "badges": [{"type": "top", "text": "Топ продаж"}],
-          "price": "8 300 ₽",
-          "name": "Game Pass Ultimate 10 мес.",
-          "note": "Активация на новый аккаунт.",
-          "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys",
-          "disabled": true
         },
         {
           "image": "my_folder/57897877855.jpg",
