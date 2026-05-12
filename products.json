@@ -12,7 +12,8 @@
           "name": "Game Pass Ultimate 1 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -22,7 +23,8 @@
           "name": "Game Pass Ultimate 3 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -32,7 +34,8 @@
           "name": "Game Pass Ultimate 5 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -42,7 +45,8 @@
           "name": "Game Pass Ultimate 7 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -52,7 +56,8 @@
           "name": "Game Pass Ultimate 9 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -62,7 +67,8 @@
           "name": "Game Pass Ultimate 11 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -72,7 +78,8 @@
           "name": "Game Pass Ultimate 13 мес.",
           "note": "Оформление на ваш аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         }
       ]
     },
@@ -88,7 +95,8 @@
           "name": "Game Pass Ultimate 1 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": true
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -98,7 +106,8 @@
           "name": "Game Pass Ultimate 2 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -108,17 +117,19 @@
           "name": "Game Pass Ultimate 3 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": true
         },
         {
           "image": "my_folder/57897877855.jpg",
           "title": "Game Pass Ultimate",
           "badges": [{"type": "top", "text": "Топ продаж"}],
-          "price": " 3 600 ₽",
+          "price": "3 600 ₽",
           "name": "Game Pass Ultimate 4 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -128,7 +139,8 @@
           "name": "Game Pass Ultimate 7 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -138,7 +150,8 @@
           "name": "Game Pass Ultimate 9 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -148,7 +161,8 @@
           "name": "Game Pass Ultimate 10 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": true
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -158,7 +172,8 @@
           "name": "Game Pass Ultimate 11 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         },
         {
           "image": "my_folder/57897877855.jpg",
@@ -168,7 +183,8 @@
           "name": "Game Pass Ultimate 13 мес.",
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
-          "link": "https://t.me/realfurys"
+          "link": "https://t.me/realfurys",
+          "disabled": false
         }
       ]
     }
