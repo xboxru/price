@@ -150,7 +150,7 @@
           "platforms": ["Xbox One", "Xbox Series S/X"],
           "link": "https://t.me/realfurys"
         }, 
-        /*{
+        /
           "image": "my_folder/57897877855.jpg",
           "title": "Game Pass Ultimate",
           "badges": [{"type": "top", "text": "Топ продаж"}],
@@ -159,7 +159,7 @@
           "note": "Активация на новый аккаунт.",
           "platforms": ["Xbox One", "Xbox Series S/X"],
           "link": "https://t.me/realfurys"
-        },*/
+        },
         {
           "image": "my_folder/57897877855.jpg",
           "title": "Game Pass Ultimate",
