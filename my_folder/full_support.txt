@@ -138,6 +138,7 @@ Minion Masters
 Monster Sanctuary
 Monster Hunter Wilds
 Moonscars
+Motorslice
 MOUSE: P.I. For Hire
 Mount & Blade 2: Bannerlord
 Mullet MadJack
@@ -183,6 +184,7 @@ Quake
 Quake 2
 Ready or Not
 Repentant
+Replaced
 Relooted
 Roadside Research
 Roboquest
