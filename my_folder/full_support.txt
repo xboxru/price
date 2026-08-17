@@ -24,6 +24,7 @@ Ball x Pit
 Barbie Project Friendship
 Batora: Lost Haven
 Battlefield 6
+Beatdown City Survivors
 Black Myth Wukong
 Blacktail
 BlazBlue Entropy Effect X
@@ -48,6 +49,8 @@ Commandos: Origins
 Clair Obscur: Expedition 33
 Craftopia
 Cyberpunk 2077
+CyberTD
+Darwin’s Paradox
 Dauntless
 DayZ
 Daydream: Forgotten Sorrow
@@ -95,11 +98,13 @@ Gears Tactics
 Ghostlore
 Go Mecha Ball
 Grappin
+Gothic Remake
 Great God Grove
 GRID Legends
 GRIME
 Grounded
 Grounded 2
+Halo: Campaign Evolved
 Halo Infinite
 Halo: The Master Chief Collection
 Hawked
@@ -121,6 +126,7 @@ Immortality
 Insurgency: Sandstorm
 Journey to the Savage Planet
 Jurassic World: Evolution 2
+Kabuto Park
 Kingdom Come: Deliverance II
 Kena: Bridge of Spirits
 Kona 2
@@ -130,6 +136,8 @@ Lightyear Frontier
 Little Nightmares
 Maneater
 Mecha Break
+Metal Eden
+Meow Moments: Celebrating Geeks & Athletes
 Metro Exodus
 Microsoft Flight Simulator
 Minecraft
@@ -245,6 +253,7 @@ The Sims 4
 They Are Billions
 Throne and Liberty
 To the Sky
+Tom Clancy’s Rainbow Six Siege
 Tokyo Warfare Turbo
 Transport Fever 2
 Turok
