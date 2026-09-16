@@ -51,15 +51,23 @@
     }
 
     .logo-icon {
-      width: 60px;
-      height: 60px;
-      background: var(--xbox-green);
+      width: 80px;
+      height: 80px;
+      background: #000;
       border-radius: 50%;
       margin: 0 auto 15px;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 30px rgba(16, 124, 16, 0.4);
+      box-shadow: 0 0 30px rgba(16, 124, 16, 0.6);
+      border: 2px solid var(--xbox-green);
+      overflow: hidden;
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     h1 {
@@ -226,9 +234,7 @@
   <div class="wrapper">
     <header>
       <div class="logo-icon">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM7.05 19.12c-.52-.36-1.12-1.02-1.46-1.64.44-.32 1.48-.96 2.44-1.42.92-.44 2.22-.96 2.92-1.16.7-.22 1.44-.42 1.05-.75-.38-.34-2.62-1.84-3.72-2.92-1.1-1.08-1.54-2.14-1.54-3.08 0-.94.44-1.84 1.24-2.58C9.5 4.3 11.24 4 12 4c.76 0 2.5.3 4.01 1.55.8.74 1.24 1.64 1.24 2.58 0 .94-.44 2-1.54 3.08-1.1 1.08-3.34 2.58-3.72 2.92-.39.33.35.53 1.05.75.7.2 2 .72 2.92 1.16.96.46 2 .96 2.44 1.42-.34.62-.94 1.28-1.46 1.64-.52.36-1.68.96-2.94 1.26-1.26.3-3.06.34-4.01.34s-2.75-.04-4.01-.34c-1.26-.3-2.42-.9-2.94-1.26z"/>
-        </svg>
+        <img src="my_folder/1776719049640-019dacb4-a48a-7a27-8b91-eec2b3d301a2.png" alt="Logo">
       </div>
       <h1>DNS Настройки</h1>
       <p class="subtitle">Для стабильной работы Xbox Live</p>
@@ -240,7 +246,7 @@
           <span class="label">Primary / Основной</span>
           <div class="dns-value" onclick="copyText('111.88.96.50')">
             <span>111.88.96.50</span>
-            <span class="copy-hint">СКОПИРОВАТЬ</span>
+            <span class="copy-hint">TAP TO COPY</span>
           </div>
         </div>
         
@@ -248,7 +254,7 @@
           <span class="label">Secondary / Доп.</span>
           <div class="dns-value" onclick="copyText('111.88.96.51')">
             <span>111.88.96.51</span>
-            <span class="copy-hint">СКОПИРОВАТЬ</span>
+            <span class="copy-hint">TAP TO COPY</span>
           </div>
         </div>
       </div>
