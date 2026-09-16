@@ -3,206 +3,293 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Новые DNS адреса Xbox</title>
+  <title>Xbox DNS Settings</title>
   <style>
+    :root {
+      --xbox-green: #107c10;
+      --xbox-light-green: #2ecc71;
+      --bg-dark: #050505;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --text-main: #ffffff;
+      --text-dim: #a0a0a0;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
-      color: #ffffff;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: radial-gradient(circle at top right, #1a3a1a, #050505 60%);
+      background-attachment: fixed;
+      color: var(--text-main);
       margin: 0;
-      padding: 20px;
-      line-height: 1.6;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       min-height: 100vh;
+      line-height: 1.5;
     }
-    .container {
-      max-width: 680px;
-      margin: 40px auto;
-      background: rgba(30, 30, 50, 0.95);
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-      border: 1px solid #444;
+
+    .wrapper {
+      width: 100%;
+      max-width: 500px;
+      padding: 20px;
+      animation: fadeIn 0.8s ease-out;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .logo-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--xbox-green);
+      border-radius: 50%;
+      margin: 0 auto 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(16, 124, 16, 0.4);
+    }
+
     h1 {
-      text-align: center;
-      color: #00ff9d;
-      margin-bottom: 8px;
-      font-size: 2.2rem;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0;
+      letter-spacing: -0.5px;
     }
+
     .subtitle {
-      text-align: center;
-      color: #aaaaaa;
-      font-size: 1.1rem;
-      margin-bottom: 30px;
+      color: var(--text-dim);
+      font-size: 1rem;
+      margin-top: 8px;
     }
-    .section {
-      margin-bottom: 35px;
+
+    /* Основной блок DNS */
+    .main-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      margin-bottom: 25px;
     }
+
+    .dns-group {
+      margin-bottom: 20px;
+    }
+
+    .dns-group:last-child {
+      margin-bottom: 0;
+    }
+
     .label {
-      font-size: 1.15rem;
-      font-weight: bold;
-      color: #00ccff;
+      display: block;
+      color: var(--xbox-light-green);
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      padding-left: 4px;
+    }
+
+    .dns-value {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 16px 20px;
+      font-family: 'Consolas', monospace;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .dns-value:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--xbox-green);
+    }
+
+    .dns-value:active {
+      transform: scale(0.98);
+    }
+
+    .copy-hint {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      opacity: 0.5;
+    }
+
+    /* Вспомогательные блоки */
+    .secondary-section {
+      padding: 0 10px;
+    }
+
+    .old-addresses-title {
+      font-size: 0.9rem;
+      color: var(--text-dim);
       margin-bottom: 12px;
       display: block;
     }
-    .dns-box {
-      background: #1e1e2e;
-      padding: 18px 22px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      border-left: 5px solid #00ff9d;
-      transition: all 0.2s ease;
+
+    .old-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 30px;
     }
-    .dns-box:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 255, 157, 0.15);
-    }
-    .dns-item {
-      font-family: monospace;
-      font-size: 1.32rem;
-      margin: 12px 0;
-      color: #ffffff;
-      cursor: pointer;
-      user-select: none;
-      padding: 6px 10px;
-      border-radius: 8px;
-      transition: background 0.2s;
-    }
-    .dns-item:hover {
-      background: rgba(0, 255, 157, 0.1);
-    }
-    .dns-item:active {
-      background: rgba(0, 255, 157, 0.25);
-    }
-    .old-box {
-      background: #1e1e2e;
-      padding: 18px 22px;
-      border-radius: 12px;
-      border-left: 5px solid #666666;
-    }
+
     .old-item {
-      font-family: monospace;
-      font-size: 1.22rem;
-      margin: 10px 0;
-      color: #bbbbbb;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-dim);
+      border: 1px solid transparent;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
     }
-    .note {
-      background: #2a2a3a;
-      padding: 18px;
+
+    .badge-stable {
+      background: var(--xbox-green);
+      color: white;
+      font-size: 0.6rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    /* Инструкция */
+    .guide {
+      background: rgba(16, 124, 16, 0.15);
+      border-left: 3px solid var(--xbox-green);
       border-radius: 12px;
-      font-size: 0.98rem;
-      color: #bbbbbb;
-      margin-top: 10px;
+      padding: 20px;
+      font-size: 0.9rem;
     }
-    .copied {
+
+    .guide ol {
+      margin: 10px 0 0 0;
+      padding-left: 20px;
+      color: #e0e0e0;
+    }
+
+    .guide li {
+      margin-bottom: 8px;
+    }
+
+    /* Toast */
+    .toast {
       position: fixed;
-      bottom: 20px;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-      background: #00ff9d;
-      color: #000;
+      background: var(--xbox-green);
+      color: white;
       padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 5px 15px rgba(0, 255, 157, 0.4);
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       display: none;
       z-index: 1000;
     }
-    footer {
-      text-align: center;
-      margin-top: 40px;
-      color: #666;
-      font-size: 0.92rem;
-    }
 
-    /* Адаптивность */
-    @media (max-width: 600px) {
-      .container {
-        margin: 20px auto;
-        padding: 24px 20px;
-      }
-      h1 {
-        font-size: 1.9rem;
-      }
-      .dns-item {
-        font-size: 1.25rem;
-      }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.6rem; }
+      .dns-value { font-size: 1.1rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <h1>НОВЫЕ DNS АДРЕСА</h1>
-    <p class="subtitle">Актуальные адреса для стабильного подключения</p>
+  <div class="wrapper">
+    <header>
+      <div class="logo-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
+          <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM7.05 19.12c-.52-.36-1.12-1.02-1.46-1.64.44-.32 1.48-.96 2.44-1.42.92-.44 2.22-.96 2.92-1.16.7-.22 1.44-.42 1.05-.75-.38-.34-2.62-1.84-3.72-2.92-1.1-1.08-1.54-2.14-1.54-3.08 0-.94.44-1.84 1.24-2.58C9.5 4.3 11.24 4 12 4c.76 0 2.5.3 4.01 1.55.8.74 1.24 1.64 1.24 2.58 0 .94-.44 2-1.54 3.08-1.1 1.08-3.34 2.58-3.72 2.92-.39.33.35.53 1.05.75.7.2 2 .72 2.92 1.16.96.46 2 .96 2.44 1.42-.34.62-.94 1.28-1.46 1.64-.52.36-1.68.96-2.94 1.26-1.26.3-3.06.34-4.01.34s-2.75-.04-4.01-.34c-1.26-.3-2.42-.9-2.94-1.26z"/>
+        </svg>
+      </div>
+      <h1>DNS Настройки</h1>
+      <p class="subtitle">Для стабильной работы Xbox Live</p>
+    </header>
 
-    <div class="section">
-      <span class="label">✅ Основная пара (рекомендуется)</span>
-      <div class="dns-box">
-        <div class="dns-item" data-copy="111.88.96.50">
-          <strong>Основной:</strong> 111.88.96.50
+    <main>
+      <div class="main-card">
+        <div class="dns-group">
+          <span class="label">Primary / Основной</span>
+          <div class="dns-value" onclick="copyText('111.88.96.50')">
+            <span>111.88.96.50</span>
+            <span class="copy-hint">TAP TO COPY</span>
+          </div>
         </div>
-        <div class="dns-item" data-copy="111.88.96.51">
-          <strong>Дополнительный:</strong> 111.88.96.51
+        
+        <div class="dns-group">
+          <span class="label">Secondary / Доп.</span>
+          <div class="dns-value" onclick="copyText('111.88.96.51')">
+            <span>111.88.96.51</span>
+            <span class="copy-hint">TAP TO COPY</span>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="section">
-      <span class="label">✅ Альтернативная пара</span>
-      <div class="dns-box">
-        <div class="dns-item" data-copy="176.99.11.77">
-          <strong>Основной:</strong> 176.99.11.77
+      <div class="secondary-section">
+        <span class="old-addresses-title">Запасные адреса (нажми, чтобы скопировать):</span>
+        <div class="old-grid">
+          <div class="old-item" onclick="copyText('31.192.108.180')">31.192.108.180</div>
+          <div class="old-item" onclick="copyText('45.90.33.120')">
+            45.90.33.120
+            <span class="badge-stable">стабильный</span>
+          </div>
+          <div class="old-item" onclick="copyText('195.123.210.89')">195.123.210.89</div>
+          <div class="old-item" onclick="copyText('95.216.232.133')">95.216.232.133</div>
         </div>
-        <div class="dns-item" data-copy="80.78.247.254">
-          <strong>Дополнительный:</strong> 80.78.247.254
+
+        <div class="guide">
+          <strong>Как настроить:</strong>
+          <ol>
+            <li>Параметры → Сеть → Параметры сети</li>
+            <li>Дополнительные настройки → Параметры DNS</li>
+            <li>Выберите «Вручную» и введите адреса выше</li>
+            <li>Перезагрузите консоль для применения</li>
+          </ol>
         </div>
       </div>
-    </div>
-
-    <div class="section">
-      <span class="label">📌 Старые адреса</span>
-      <div class="old-box">
-        <div class="old-item">31.192.108.180</div>
-        <div class="old-item">45.90.33.120 (стабильный)</div>
-        <div class="old-item">195.123.210.89</div>
-        <div class="old-item">95.216.232.133</div>
-      </div>
-    </div>
-
-    <div class="note">
-      <strong>Как установить:</strong><br>
-      1. Зайдите в «Настройки» → «Сеть»<br>
-      2. Выберите «Расширенные настройки сети»<br>
-      3. Укажите один из вариантов DNS выше<br>
-      4. Сохраните и перезагрузите устройство
-    </div>
-
-    <footer>
-      Можно использовать как новые, так и старые адреса.<br>
-      При проблемах попробуйте другую пару.
-    </footer>
+    </main>
   </div>
 
-  <!-- Уведомление о копировании -->
-  <div id="copiedToast" class="copied">✅ Адрес скопирован!</div>
+  <div id="toast" class="toast">Скопировано!</div>
 
   <script>
-    // Функция копирования
-    document.querySelectorAll('.dns-item').forEach(item => {
-      item.addEventListener('click', function() {
-        const textToCopy = this.getAttribute('data-copy') || this.textContent.trim().split(': ').pop();
-
-        navigator.clipboard.writeText(textToCopy).then(() => {
-          const toast = document.getElementById('copiedToast');
-          toast.style.display = 'block';
-          
-          setTimeout(() => {
-            toast.style.display = 'none';
-          }, 2000);
-        });
+    function copyText(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 2000);
       });
-    });
+    }
   </script>
 </body>
 </html>
