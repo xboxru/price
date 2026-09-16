@@ -175,6 +175,7 @@
       align-items: center;
       justify-content: center;
       gap: 4px;
+      cursor: pointer;
     }
 
     .badge-stable {
@@ -190,21 +191,51 @@
 
     /* Инструкция */
     .guide {
-      background: rgba(16, 124, 16, 0.15);
+      background: rgba(16, 124, 16, 0.1);
       border-left: 3px solid var(--xbox-green);
-      border-radius: 12px;
+      border-radius: 16px;
       padding: 20px;
       font-size: 0.9rem;
     }
 
+    .guide strong {
+      display: block;
+      margin-bottom: 15px;
+      color: white;
+    }
+
     .guide ol {
-      margin: 10px 0 0 0;
-      padding-left: 20px;
-      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: xbox-steps;
     }
 
     .guide li {
-      margin-bottom: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: #e0e0e0;
+      line-height: 1.4;
+    }
+
+    .guide li::before {
+      counter-increment: xbox-steps;
+      content: counter(xbox-steps);
+      width: 22px;
+      height: 22px;
+      background: var(--xbox-green);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 2px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
     /* Toast */
@@ -220,7 +251,104 @@
       font-weight: 600;
       box-shadow: 0 10px 20px rgba(0,0,0,0.3);
       display: none;
-      z-index: 1000;
+      z-index: 2000;
+    }
+
+    /* Fake Verification Styles */
+    #sub-lock {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      z-index: 3000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      transition: all 0.4s ease;
+    }
+
+    .lock-card {
+      background: #1a1a1a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      max-width: 400px;
+      width: 100%;
+      padding: 40px 30px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    }
+
+    .lock-icon-circle {
+      width: 60px;
+      height: 60px;
+      background: var(--xbox-green);
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lock-card h2 {
+      margin: 0 0 12px;
+      font-size: 1.6rem;
+    }
+
+    .lock-card p {
+      color: var(--text-dim);
+      font-size: 1rem;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .btn-action {
+      display: block;
+      width: 100%;
+      padding: 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+    }
+
+    .btn-main {
+      background: #fff;
+      color: #000;
+      margin-bottom: 12px;
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-action:active {
+      transform: scale(0.97);
+    }
+
+    .spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-top-color: white;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      display: none;
+      margin: 0 auto;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
 
     @media (max-width: 480px) {
@@ -231,10 +359,29 @@
 </head>
 <body>
 
+  <!-- Fake Verification Screen -->
+  <div id="sub-lock">
+    <div class="lock-card">
+      <div class="lock-icon-circle">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+          <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+        </svg>
+      </div>
+      <h2>Доступ закрыт</h2>
+      <p>Для просмотра актуальных DNS настроек подпишитесь на наш Telegram канал.</p>
+      
+      <a href="https://t.me/spelonline" target="_blank" class="btn-action btn-main">Подписаться</a>
+      <button class="btn-action btn-ghost" onclick="verifyFake()">
+        <span id="btn-text">Я подписался</span>
+        <div id="btn-spinner" class="spinner"></div>
+      </button>
+    </div>
+  </div>
+
   <div class="wrapper">
     <header>
       <div class="logo-icon">
-        <img src="my_folder/1776719049640-019dacb4-a48a-7a27-8b91-eec2b3d301a2.png" alt="Logo">
+        <img src="logo.jpg" alt="Logo">
       </div>
       <h1>DNS Настройки</h1>
       <p class="subtitle">Для стабильной работы Xbox Live</p>
@@ -246,7 +393,7 @@
           <span class="label">Primary / Основной</span>
           <div class="dns-value" onclick="copyText('111.88.96.50')">
             <span>111.88.96.50</span>
-            <span class="copy-hint">СКОПИРОВАТЬ</span>
+            <span class="copy-hint">TAP TO COPY</span>
           </div>
         </div>
         
@@ -254,7 +401,7 @@
           <span class="label">Secondary / Доп.</span>
           <div class="dns-value" onclick="copyText('111.88.96.51')">
             <span>111.88.96.51</span>
-            <span class="copy-hint">СКОПИРОВАТЬ</span>
+            <span class="copy-hint">TAP TO COPY</span>
           </div>
         </div>
       </div>
@@ -295,6 +442,27 @@
           toast.style.display = 'none';
         }, 2000);
       });
+    }
+
+    function verifyFake() {
+      const btnText = document.getElementById('btn-text');
+      const btnSpinner = document.getElementById('btn-spinner');
+      
+      btnText.style.display = 'none';
+      btnSpinner.style.display = 'block';
+
+      // Фэйковая задержка 2 секунды
+      setTimeout(() => {
+        document.getElementById('sub-lock').classList.add('hidden');
+        
+        // Показываем приветственный тост
+        const toast = document.getElementById('toast');
+        toast.innerText = 'Доступ разрешен';
+        toast.style.display = 'block';
+        setTimeout(() => {
+          toast.style.display = 'none';
+        }, 3000);
+      }, 2000);
     }
   </script>
 </body>
