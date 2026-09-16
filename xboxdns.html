@@ -370,7 +370,7 @@
       <h2>Доступ закрыт</h2>
       <p>Для просмотра актуальных DNS настроек подпишитесь на наш Telegram канал.</p>
       
-      <a href="https://t.me/spelonline" target="_blank" class="btn-action btn-main">Подписаться</a>
+      <a href="https://t.me/ВАШ_КАНАЛ" target="_blank" class="btn-action btn-main">Подписаться</a>
       <button class="btn-action btn-ghost" onclick="verifyFake()">
         <span id="btn-text">Я подписался</span>
         <div id="btn-spinner" class="spinner"></div>
@@ -381,7 +381,7 @@
   <div class="wrapper">
     <header>
       <div class="logo-icon">
-        <img src="my_folder/1776719049640-019dacb4-a48a-7a27-8b91-eec2b3d301a2.png" alt="Xbox Россия Игры и Подписки">
+        <img src="my_folder/1776719049640-019dacb4-a48a-7a27-8b91-eec2b3d301a2.png" alt="Logo">
       </div>
       <h1>DNS Настройки</h1>
       <p class="subtitle">Для стабильной работы Xbox Live</p>
@@ -390,7 +390,7 @@
     <main>
       <div class="main-card">
         <div class="dns-group">
-          <span class="label">Primary / Основной</span>
+          <span class="label">Основной</span>
           <div class="dns-value" onclick="copyText('111.88.96.50')">
             <span>111.88.96.50</span>
             <span class="copy-hint">Скопировать</span>
@@ -398,7 +398,7 @@
         </div>
         
         <div class="dns-group">
-          <span class="label">Secondary / Доп.</span>
+          <span class="label">Дополнительный.</span>
           <div class="dns-value" onclick="copyText('111.88.96.51')">
             <span>111.88.96.51</span>
             <span class="copy-hint">Скопировать</span>
@@ -437,6 +437,7 @@
     function copyText(text) {
       navigator.clipboard.writeText(text).then(() => {
         const toast = document.getElementById('toast');
+        toast.innerText = 'Скопировано!';
         toast.style.display = 'block';
         setTimeout(() => {
           toast.style.display = 'none';
