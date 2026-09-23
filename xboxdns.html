@@ -62,6 +62,12 @@
       box-shadow: 0 0 30px rgba(16, 124, 16, 0.6);
       border: 2px solid var(--xbox-green);
       overflow: hidden;
+      animation: logoGlow 3.2s ease-in-out infinite;
+    }
+
+    @keyframes logoGlow {
+      0%, 100% { box-shadow: 0 0 30px rgba(16, 124, 16, 0.55); }
+      50% { box-shadow: 0 0 46px rgba(46, 204, 113, 0.65); }
     }
 
     .logo-icon img {
@@ -104,7 +110,9 @@
     }
 
     .label {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 8px;
       color: var(--xbox-light-green);
       text-transform: uppercase;
       font-size: 0.75rem;
@@ -112,6 +120,23 @@
       letter-spacing: 1px;
       margin-bottom: 8px;
       padding-left: 4px;
+    }
+
+    .badge-new {
+      background: var(--xbox-green);
+      color: white;
+      font-size: 0.6rem;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      animation: badgePulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(46, 204, 113, 0.5); }
+      50% { box-shadow: 0 0 0 5px rgba(46, 204, 113, 0); }
     }
 
     .dns-value {
@@ -135,6 +160,11 @@
 
     .dns-value:active {
       transform: scale(0.98);
+    }
+
+    .dns-value.copied {
+      border-color: var(--xbox-light-green);
+      background: rgba(16, 124, 16, 0.18);
     }
 
     .copy-hint {
@@ -176,6 +206,18 @@
       justify-content: center;
       gap: 4px;
       cursor: pointer;
+      font-family: 'Consolas', monospace;
+      transition: all 0.2s ease;
+    }
+
+    .old-item:hover {
+      border-color: rgba(16, 124, 16, 0.5);
+      color: #fff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .old-item:active {
+      transform: scale(0.97);
     }
 
     .badge-stable {
@@ -218,6 +260,10 @@
       gap: 12px;
       color: #e0e0e0;
       line-height: 1.4;
+    }
+
+    .guide li:last-child {
+      margin-bottom: 0;
     }
 
     .guide li::before {
@@ -369,7 +415,7 @@
       </div>
       <h2>Доступ закрыт</h2>
       <p>Для просмотра актуальных DNS настроек подпишитесь на наш Telegram канал.</p>
-      
+
       <a href="https://t.me/spelonline" target="_blank" class="btn-action btn-main">Подписаться</a>
       <button class="btn-action btn-ghost" onclick="verifyFake()">
         <span id="btn-text">Я подписался</span>
@@ -381,7 +427,7 @@
   <div class="wrapper">
     <header>
       <div class="logo-icon">
-        <img src="my_folder/1776719049640-019dacb4-a48a-7a27-8b91-eec2b3d301a2.png" alt="Logo">
+        <img src="data:image/jpeg;base64,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" alt="Logo">
       </div>
       <h1>DNS Настройки</h1>
       <p class="subtitle">Для стабильной работы Xbox Live</p>
@@ -390,16 +436,16 @@
     <main>
       <div class="main-card">
         <div class="dns-group">
-          <span class="label">Основной</span>
-          <div class="dns-value" onclick="copyText('111.88.96.50')">
+          <span class="label">Основной <span class="badge-new">новый</span></span>
+          <div class="dns-value" onclick="copyText('111.88.96.54', this)">
             <span>111.88.96.54</span>
             <span class="copy-hint">Скопировать</span>
           </div>
         </div>
-        
+
         <div class="dns-group">
-          <span class="label">Дополнительный.</span>
-          <div class="dns-value" onclick="copyText('111.88.96.51')">
+          <span class="label">Дополнительный <span class="badge-new">новый</span></span>
+          <div class="dns-value" onclick="copyText('111.88.96.55', this)">
             <span>111.88.96.55</span>
             <span class="copy-hint">Скопировать</span>
           </div>
@@ -409,15 +455,15 @@
       <div class="secondary-section">
         <span class="old-addresses-title">Запасные адреса (нажми, чтобы скопировать):</span>
         <div class="old-grid">
-          <div class="old-item" onclick="copyText('111.88.96.50')">111.88.96.50</div>
-          <div class="old-item" onclick="copyText('111.88.96.51')">111.88.96.51</div>
-          <div class="old-item" onclick="copyText('31.192.108.180')">31.192.108.180</div>
-          <div class="old-item" onclick="copyText('45.90.33.120')">
+          <div class="old-item" onclick="copyText('111.88.96.50', this)">111.88.96.50</div>
+          <div class="old-item" onclick="copyText('111.88.96.51', this)">111.88.96.51</div>
+          <div class="old-item" onclick="copyText('31.192.108.180', this)">31.192.108.180</div>
+          <div class="old-item" onclick="copyText('45.90.33.120', this)">
             45.90.33.120
             <span class="badge-stable">стабильный</span>
           </div>
-          <div class="old-item" onclick="copyText('195.123.210.89')">195.123.210.89</div>
-          <div class="old-item" onclick="copyText('95.216.232.133')">95.216.232.133</div>
+          <div class="old-item" onclick="copyText('195.123.210.89', this)">195.123.210.89</div>
+          <div class="old-item" onclick="copyText('95.216.232.133', this)">95.216.232.133</div>
         </div>
 
         <div class="guide">
@@ -436,35 +482,56 @@
   <div id="toast" class="toast">Скопировано!</div>
 
   <script>
-    function copyText(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        const toast = document.getElementById('toast');
-        toast.innerText = 'Скопировано!';
-        toast.style.display = 'block';
-        setTimeout(() => {
-          toast.style.display = 'none';
-        }, 2000);
-      });
+    function showToast(text, duration) {
+      var toast = document.getElementById('toast');
+      toast.innerText = text;
+      toast.style.display = 'block';
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(function () {
+        toast.style.display = 'none';
+      }, duration || 2000);
+    }
+
+    function markCopied(el) {
+      el.classList.add('copied');
+      setTimeout(function () { el.classList.remove('copied'); }, 1500);
+    }
+
+    function copyText(text, el) {
+      function done() {
+        showToast('Скопировано!');
+        if (el) markCopied(el);
+      }
+      function fallback() {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        try { document.execCommand('copy'); } catch (e) {}
+        document.body.removeChild(ta);
+        done();
+      }
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(done).catch(fallback);
+      } else {
+        fallback();
+      }
     }
 
     function verifyFake() {
-      const btnText = document.getElementById('btn-text');
-      const btnSpinner = document.getElementById('btn-spinner');
-      
+      var btnText = document.getElementById('btn-text');
+      var btnSpinner = document.getElementById('btn-spinner');
+
       btnText.style.display = 'none';
       btnSpinner.style.display = 'block';
 
       // Фэйковая задержка 2 секунды
-      setTimeout(() => {
+      setTimeout(function () {
         document.getElementById('sub-lock').classList.add('hidden');
-        
-        // Показываем приветственный тост
-        const toast = document.getElementById('toast');
-        toast.innerText = 'Доступ разрешен';
-        toast.style.display = 'block';
-        setTimeout(() => {
-          toast.style.display = 'none';
-        }, 3000);
+        showToast('Доступ разрешен', 3000);
       }, 2000);
     }
   </script>
